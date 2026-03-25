@@ -12,6 +12,7 @@
 		5CEB780D9A4E2A3287AD658C /* SettingsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18E7F9274B5ED0E09FCD76E /* SettingsStore.swift */; };
 		6D08FDE191CF767857B24411 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3194C17945FB60619E5EA63A /* ContentView.swift */; };
 		7DB00AC47DCC5AC6C503F544 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBCABE226EEE79C1CF663E8 /* main.swift */; };
+		807CA1E30ECD9B449A771DBD /* ProcessHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0EB559E75F7A25DAF8B764 /* ProcessHistory.swift */; };
 		8771847A0BA1D6E515DDB8D5 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A6C55A89CDC8714277C18B /* NetworkService.swift */; };
 		8D5394069D311A71941A8EF4 /* DiskService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8114E11EF5B83C4C8DF215 /* DiskService.swift */; };
 		96A36FD8ECBA9E96BBDFDDBD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389813B52959436D5D601C07 /* AppDelegate.swift */; };
@@ -37,6 +38,7 @@
 		5D64C64CB1014815B6D17905 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		94A1060D1C5415A45DADEAF2 /* iCloudSyncManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iCloudSyncManager.swift; sourceTree = "<group>"; };
 		9A14A878583436EFB2F6C202 /* ProcessListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessListView.swift; sourceTree = "<group>"; };
+		9D0EB559E75F7A25DAF8B764 /* ProcessHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessHistory.swift; sourceTree = "<group>"; };
 		A20FC1AABB97506BBA610520 /* BatteryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryService.swift; sourceTree = "<group>"; };
 		A7F79D17FCA98DBCF9BF859C /* Pulse.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Pulse.entitlements; sourceTree = "<group>"; };
 		AE311A73CA9AD4A7E7D86E64 /* SystemStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemStats.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 		4E212FB2CAC5BE78BBA4DDE1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				9D0EB559E75F7A25DAF8B764 /* ProcessHistory.swift */,
 				AE311A73CA9AD4A7E7D86E64 /* SystemStats.swift */,
 			);
 			path = Models;
@@ -209,6 +212,7 @@
 				8D5394069D311A71941A8EF4 /* DiskService.swift in Sources */,
 				F08BDC60BFCAE4D082386AE1 /* HistoryView.swift in Sources */,
 				8771847A0BA1D6E515DDB8D5 /* NetworkService.swift in Sources */,
+				807CA1E30ECD9B449A771DBD /* ProcessHistory.swift in Sources */,
 				D3919A9516653469F0EBC619 /* ProcessListView.swift in Sources */,
 				EB7610546B75F1B9B5F67E3D /* PulseViewModel.swift in Sources */,
 				5CEB780D9A4E2A3287AD658C /* SettingsStore.swift in Sources */,

@@ -39,6 +39,9 @@ final class PulseViewModel: ObservableObject {
         processTimer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { [weak self] _ in
             Task { @MainActor in
                 self?.refreshProcesses()
+                if let processes = self?.topProcesses {
+                    ProcessHistoryManager.shared.recordTopProcesses(processes)
+                }
             }
         }
     }
