@@ -4,6 +4,42 @@ struct ContentView: View {
     @ObservedObject var viewModel: PulseViewModel
 
     var body: some View {
+        TabView(selection: $viewModel.selectedTab) {
+            OverviewTabView(viewModel: viewModel)
+                .tabItem {
+                    Label("Overview", systemImage: "gauge")
+                }
+                .tag(0)
+
+            HistoryView(viewModel: viewModel)
+                .tabItem {
+                    Label("History", systemImage: "chart.line.uptrend.xyaxis")
+                }
+                .tag(1)
+
+            ProcessListView(viewModel: viewModel)
+                .tabItem {
+                    Label("Processes", systemImage: "list.bullet")
+                }
+                .tag(2)
+
+            SettingsView(viewModel: viewModel)
+                .tabItem {
+                    Label("Settings", systemImage: "gearshape")
+                }
+                .tag(3)
+        }
+        .frame(width: 380, height: 420)
+        .background(Theme.background)
+    }
+}
+
+// MARK: - Overview Tab
+
+struct OverviewTabView: View {
+    @ObservedObject var viewModel: PulseViewModel
+
+    var body: some View {
         VStack(spacing: 0) {
             // Header
             headerView
@@ -18,11 +54,8 @@ struct ContentView: View {
                 .padding(Theme.paddingMedium)
             }
         }
-        .frame(width: 360, height: 420)
-        .background(Theme.background)
     }
 
-    // MARK: - Header
     private var headerView: some View {
         HStack {
             Text("Pulse")
@@ -83,7 +116,6 @@ struct ContentView: View {
                 Spacer()
             }
 
-            // Warning for high CPU
             if viewModel.stats.cpuTotal > 90 {
                 warningBadge(text: "High CPU usage", color: Theme.statusRed)
             }
@@ -106,7 +138,6 @@ struct ContentView: View {
                     .foregroundColor(Theme.usageColor(for: viewModel.stats.ramPercentage))
             }
 
-            // Progress bar
             GeometryReader { geometry in
                 ZStack(alignment: .leading) {
                     RoundedRectangle(cornerRadius: 4)
@@ -248,6 +279,72 @@ struct ContentView: View {
             return String(format: "%.0f MB", b / 1_000_000)
         } else {
             return String(format: "%.0f KB", b / 1_000)
+        }
+    }
+}
+
+// MARK: - Settings View
+
+struct SettingsView: View {
+    @ObservedObject var viewModel: PulseViewModel
+
+    var body: some View {
+        ScrollView {
+            VStack(spacing: 16) {
+                // Data section
+                VStack(alignment: .leading, spacing: 8) {
+                    Text("DATA")
+                        .font(.system(size: 11, weight: .semibold))
+                        .foregroundColor(Theme.textSecondary)
+                        .tracking(0.05)
+
+                    VStack(alignment: .leading, spacing: 8) {
+                        Button(action: exportData) {
+                            HStack {
+                                Image(systemName: "square.and.arrow.up")
+                                Text("Export Data as CSV")
+                            }
+                            .font(.system(size: 12, weight: .medium))
+                            .foregroundColor(Theme.networkDown)
+                        }
+                        .buttonStyle(.plain)
+
+                        Text("Export all recorded samples for external analysis")
+                            .font(.system(size: 11))
+                            .foregroundColor(Theme.textSecondary)
+                    }
+                    .padding(12)
+                    .background(Theme.surface)
+                    .cornerRadius(8)
+                }
+
+                // About section
+                VStack(alignment: .leading, spacing: 8) {
+                    Text("ABOUT")
+                        .font(.system(size: 11, weight: .semibold))
+                        .foregroundColor(Theme.textSecondary)
+                        .tracking(0.05)
+
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("Pulse")
+                            .font(.system(size: 13, weight: .medium))
+                            .foregroundColor(Theme.textPrimary)
+                        Text("System monitor for macOS")
+                            .font(.system(size: 11))
+                            .foregroundColor(Theme.textSecondary)
+                    }
+                    .padding(12)
+                    .background(Theme.surface)
+                    .cornerRadius(8)
+                }
+            }
+            .padding(Theme.paddingMedium)
+        }
+    }
+
+    private func exportData() {
+        if let url = viewModel.exportCSV() {
+            NSWorkspace.shared.selectFile(url.path, inFileViewerRootedAtPath: url.deletingLastPathComponent().path)
         }
     }
 }
