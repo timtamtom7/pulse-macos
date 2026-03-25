@@ -1,0 +1,79 @@
+/*
+  Localizable.strings
+  Pulse
+
+  German localization
+*/
+
+// General
+"OK" = "OK";
+"Cancel" = "Abbrechen";
+"Done" = "Fertig";
+"Error" = "Fehler";
+"Success" = "Erfolg";
+"Warning" = "Warnung";
+"Loading" = "Laden...";
+"Retry" = "Wiederholen";
+
+// Menu Bar
+"Pulse" = "Pulse";
+"System Monitor" = "Systemmonitor";
+"Quit" = "Beenden";
+"About" = "Über";
+"Settings" = "Einstellungen";
+"Refresh" = "Aktualisieren";
+
+// Stats
+"CPU" = "CPU";
+"RAM" = "RAM";
+"Disk" = "Festplatte";
+"Network" = "Netzwerk";
+"Temperature" = "Temperatur";
+"Battery" = "Batterie";
+"Processes" = "Prozesse";
+"Usage" = "Nutzung";
+"Used" = "Verwendet";
+"Free" = "Frei";
+"Total" = "Gesamt";
+
+// Units
+"percent" = "%";
+"bytes" = "B";
+"kilobytes" = "KB";
+"megabytes" = "MB";
+"gigabytes" = "GB";
+"terabytes" = "TB";
+"celsius" = "°C";
+"fahrenheit" = "°F";
+"hours" = "Stunden";
+"minutes" = "Minuten";
+"seconds" = "Sekunden";
+
+// Notifications
+"CPU Warning" = "CPU-Warnung";
+"CPU Critical" = "CPU-Kritisch";
+"RAM Warning" = "RAM-Warnung";
+"RAM Critical" = "RAM-Kritisch";
+"Temperature Warning" = "Temperatur-Warnung";
+
+// Settings
+"General" = "Allgemein";
+"Display" = "Anzeige";
+"Alerts" = "Benachrichtigungen";
+"Widgets" = "Widgets";
+"About" = "Über";
+"Refresh Rate" = "Aktualisierungsrate";
+"Show in Menu Bar" = "In Menüleiste anzeigen";
+"Compact Mode" = "Kompakter Modus";
+"Wide Mode" = "Breiter Modus";
+"Temperature Unit" = "Temperatureinheit";
+"Celsius" = "Celsius";
+"Fahrenheit" = "Fahrenheit";
+
+// Accessibility
+"VoiceOver.labels.cpu" = "CPU-Auslastung bei \(1) Prozent";
+"VoiceOver.labels.ram" = "RAM-Nutzung, \(1) von \(2) verwendeted";
+"VoiceOver.labels.disk" = "Festplattennutzung, \(1) von \(2)";
+"VoiceOver.labels.network" = "Netzwerkaktivität, Hochladen bei \(1), Herunterladen bei \(2)";
+"VoiceOver.labels.temperature" = "CPU-Temperatur, \(1) Grad Celsius";
+"VoiceOver.labels.battery" = "Batterie bei \(1) Prozent";

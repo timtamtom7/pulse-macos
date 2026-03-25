@@ -1,0 +1,79 @@
+/*
+  Localizable.strings
+  Pulse
+
+  Simplified Chinese localization
+*/
+
+// General
+"OK" = "确定";
+"Cancel" = "取消";
+"Done" = "完成";
+"Error" = "错误";
+"Success" = "成功";
+"Warning" = "警告";
+"Loading" = "加载中...";
+"Retry" = "重试";
+
+// Menu Bar
+"Pulse" = "Pulse";
+"System Monitor" = "系统监控";
+"Quit" = "退出";
+"About" = "关于";
+"Settings" = "设置";
+"Refresh" = "刷新";
+
+// Stats
+"CPU" = "CPU";
+"RAM" = "内存";
+"Disk" = "磁盘";
+"Network" = "网络";
+"Temperature" = "温度";
+"Battery" = "电池";
+"Processes" = "进程";
+"Usage" = "使用率";
+"Used" = "已用";
+"Free" = "可用";
+"Total" = "总计";
+
+// Units
+"percent" = "%";
+"bytes" = "B";
+"kilobytes" = "KB";
+"megabytes" = "MB";
+"gigabytes" = "GB";
+"terabytes" = "TB";
+"celsius" = "°C";
+"fahrenheit" = "°F";
+"hours" = "小时";
+"minutes" = "分钟";
+"seconds" = "秒";
+
+// Notifications
+"CPU Warning" = "CPU 警告";
+"CPU Critical" = "CPU 危险";
+"RAM Warning" = "内存警告";
+"RAM Critical" = "内存危险";
+"Temperature Warning" = "温度警告";
+
+// Settings
+"General" = "通用";
+"Display" = "显示";
+"Alerts" = "通知";
+"Widgets" = "小组件";
+"About" = "关于";
+"Refresh Rate" = "刷新频率";
+"Show in Menu Bar" = "显示在菜单栏";
+"Compact Mode" = "紧凑模式";
+"Wide Mode" = "宽模式";
+"Temperature Unit" = "温度单位";
+"Celsius" = "摄氏度";
+"Fahrenheit" = "华氏度";
+
+// Accessibility
+"VoiceOver.labels.cpu" = "CPU 使用率百分之 \(1)";
+"VoiceOver.labels.ram" = "内存使用，已用 \(1)，总计 \(2)";
+"VoiceOver.labels.disk" = "磁盘使用，已用 \(1)，总计 \(2)";
+"VoiceOver.labels.network" = "网络活动，上传速度 \(1)，下载速度 \(2)";
+"VoiceOver.labels.temperature" = "CPU 温度，\(1) 摄氏度";
+"VoiceOver.labels.battery" = "电池百分之 \(1)";

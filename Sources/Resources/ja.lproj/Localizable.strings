@@ -1,0 +1,79 @@
+/*
+  Localizable.strings
+  Pulse
+
+  Japanese localization
+*/
+
+// General
+"OK" = "OK";
+"Cancel" = "キャンセル";
+"Done" = "完了";
+"Error" = "エラー";
+"Success" = "成功";
+"Warning" = "警告";
+"Loading" = "読み込み中...";
+"Retry" = "再試行";
+
+// Menu Bar
+"Pulse" = "Pulse";
+"System Monitor" = "システムモニター";
+"Quit" = "終了";
+"About" = "について";
+"Settings" = "設定";
+"Refresh" = "更新";
+
+// Stats
+"CPU" = "CPU";
+"RAM" = "メモリ";
+"Disk" = "ディスク";
+"Network" = "ネットワーク";
+"Temperature" = "温度";
+"Battery" = "バッテリー";
+"Processes" = "プロセス";
+"Usage" = "使用量";
+"Used" = "使用中";
+"Free" = "空き";
+"Total" = "合計";
+
+// Units
+"percent" = "%";
+"bytes" = "B";
+"kilobytes" = "KB";
+"megabytes" = "MB";
+"gigabytes" = "GB";
+"terabytes" = "TB";
+"celsius" = "°C";
+"fahrenheit" = "°F";
+"hours" = "時間";
+"minutes" = "分";
+"seconds" = "秒";
+
+// Notifications
+"CPU Warning" = "CPU警告";
+"CPU Critical" = "CPU危険";
+"RAM Warning" = "メモリ警告";
+"RAM Critical" = "メモリ危険";
+"Temperature Warning" = "温度警告";
+
+// Settings
+"General" = "一般";
+"Display" = "表示";
+"Alerts" = "アラート";
+"Widgets" = "ウィジェット";
+"About" = "について";
+"Refresh Rate" = "更新頻度";
+"Show in Menu Bar" = "メニューバーに表示";
+"Compact Mode" = "コンパクトモード";
+"Wide Mode" = "ワイドモード";
+"Temperature Unit" = "温度単位";
+"Celsius" = "摂氏";
+"Fahrenheit" = "華氏";
+
+// Accessibility
+"VoiceOver.labels.cpu" = "CPU使用率 \(1) パーセント";
+"VoiceOver.labels.ram" = "メモリ使用量、\(2) 中 \(1) 使用中";
+"VoiceOver.labels.disk" = "ディスク使用量、\(2) 中 \(1)";
+"VoiceOver.labels.network" = "ネットワークアクティビティ、アップロード \(1)、ダウンロード \(2)";
+"VoiceOver.labels.temperature" = "CPU温度、\(1) 度";
+"VoiceOver.labels.battery" = "バッテリー \(1) パーセント";
