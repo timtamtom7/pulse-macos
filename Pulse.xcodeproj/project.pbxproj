@@ -14,6 +14,7 @@
 		7DB00AC47DCC5AC6C503F544 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBCABE226EEE79C1CF663E8 /* main.swift */; };
 		807CA1E30ECD9B449A771DBD /* ProcessHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0EB559E75F7A25DAF8B764 /* ProcessHistory.swift */; };
 		8771847A0BA1D6E515DDB8D5 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A6C55A89CDC8714277C18B /* NetworkService.swift */; };
+		8D2DDB152140DE8053C55749 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467F99243D58E7E238A75235 /* Alerts.swift */; };
 		8D5394069D311A71941A8EF4 /* DiskService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8114E11EF5B83C4C8DF215 /* DiskService.swift */; };
 		96A36FD8ECBA9E96BBDFDDBD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389813B52959436D5D601C07 /* AppDelegate.swift */; };
 		9C873DA1AB2CCD515CE1F608 /* BatteryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20FC1AABB97506BBA610520 /* BatteryService.swift */; };
@@ -32,6 +33,7 @@
 		2C8114E11EF5B83C4C8DF215 /* DiskService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskService.swift; sourceTree = "<group>"; };
 		3194C17945FB60619E5EA63A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		389813B52959436D5D601C07 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		467F99243D58E7E238A75235 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		4E8113055C9F0F43916F892F /* SystemMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemMonitor.swift; sourceTree = "<group>"; };
 		52CAFF7B2E2B22C2220AEF3D /* PulseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseViewModel.swift; sourceTree = "<group>"; };
 		5C7348B7E62FE9286096FD80 /* AlertNotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertNotificationService.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 		4E212FB2CAC5BE78BBA4DDE1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				467F99243D58E7E238A75235 /* Alerts.swift */,
 				9D0EB559E75F7A25DAF8B764 /* ProcessHistory.swift */,
 				AE311A73CA9AD4A7E7D86E64 /* SystemStats.swift */,
 			);
@@ -206,6 +209,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A69A9D4ACA587BF3F4151C8 /* AlertNotificationService.swift in Sources */,
+				8D2DDB152140DE8053C55749 /* Alerts.swift in Sources */,
 				96A36FD8ECBA9E96BBDFDDBD /* AppDelegate.swift in Sources */,
 				9C873DA1AB2CCD515CE1F608 /* BatteryService.swift in Sources */,
 				6D08FDE191CF767857B24411 /* ContentView.swift in Sources */,

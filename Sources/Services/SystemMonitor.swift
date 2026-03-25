@@ -66,6 +66,7 @@ final class SystemMonitor {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             self.onStatsUpdate?(self.currentStats)
+            AlertManager.shared.checkAlerts(stats: self.currentStats)
         }
     }
 
