@@ -11,26 +11,159 @@ struct ContentView: View {
                 }
                 .tag(0)
 
+            NetworkTabView(viewModel: viewModel)
+                .tabItem {
+                    Label("Network", systemImage: "network")
+                }
+                .tag(1)
+
             HistoryView(viewModel: viewModel)
                 .tabItem {
                     Label("History", systemImage: "chart.line.uptrend.xyaxis")
                 }
-                .tag(1)
+                .tag(2)
 
             ProcessListView(viewModel: viewModel)
                 .tabItem {
                     Label("Processes", systemImage: "list.bullet")
                 }
-                .tag(2)
+                .tag(3)
 
             SettingsView(viewModel: viewModel)
                 .tabItem {
                     Label("Settings", systemImage: "gearshape")
                 }
-                .tag(3)
+                .tag(4)
         }
         .frame(width: 380, height: 420)
         .background(Theme.background)
+    }
+}
+
+// MARK: - Network Tab
+
+struct NetworkTabView: View {
+    @ObservedObject var viewModel: PulseViewModel
+
+    var body: some View {
+        VStack(spacing: 0) {
+            // Header
+            HStack {
+                Text("Network")
+                    .font(.system(size: 16, weight: .semibold))
+                    .foregroundColor(.primary)
+                Spacer()
+            }
+            .padding(12)
+
+            Divider()
+
+            ScrollView {
+                VStack(spacing: 12) {
+                    // Download/Upload cards
+                    HStack(spacing: 12) {
+                        networkCard(
+                            title: "Downloaded",
+                            value: formatBytes(viewModel.stats.networkInDelta),
+                            icon: "arrow.down.circle.fill",
+                            color: .green
+                        )
+
+                        networkCard(
+                            title: "Uploaded",
+                            value: formatBytes(viewModel.stats.networkOutDelta),
+                            icon: "arrow.up.circle.fill",
+                            color: .blue
+                        )
+                    }
+
+                    // Speed section
+                    speedSection
+                }
+                .padding(12)
+            }
+        }
+    }
+
+    private func networkCard(title: String, value: String, icon: String, color: Color) -> some View {
+        VStack(alignment: .leading, spacing: 6) {
+            HStack(spacing: 4) {
+                Image(systemName: icon)
+                    .font(.system(size: 12))
+                    .foregroundColor(color)
+                Text(title)
+                    .font(.system(size: 11))
+                    .foregroundColor(.secondary)
+            }
+
+            Text(value)
+                .font(.system(size: 18, weight: .bold, design: .rounded))
+                .foregroundColor(.primary)
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(10)
+        .background(Color(.controlBackgroundColor))
+        .cornerRadius(8)
+    }
+
+    private var speedSection: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Text("Current Speed")
+                .font(.system(size: 12, weight: .medium))
+                .foregroundColor(.secondary)
+
+            VStack(spacing: 8) {
+                speedRow(label: "Download", value: formatBytesPerSecond(viewModel.stats.bandwidthIn), color: .green)
+                speedRow(label: "Upload", value: formatBytesPerSecond(viewModel.stats.bandwidthOut), color: .blue)
+            }
+            .padding(10)
+            .background(Color(.controlBackgroundColor))
+            .cornerRadius(8)
+        }
+    }
+
+    private func speedRow(label: String, value: String, color: Color) -> some View {
+        HStack {
+            Circle()
+                .fill(color)
+                .frame(width: 8, height: 8)
+            Text(label)
+                .font(.system(size: 12))
+                .foregroundColor(.secondary)
+            Spacer()
+            Text(value)
+                .font(.system(size: 12, weight: .medium, design: .monospaced))
+                .foregroundColor(.primary)
+        }
+    }
+
+    private func formatBytes(_ bytes: UInt64) -> String {
+        let kb = Double(bytes) / 1024
+        let mb = kb / 1024
+        let gb = mb / 1024
+
+        if gb >= 1 {
+            return String(format: "%.2f GB", gb)
+        } else if mb >= 1 {
+            return String(format: "%.1f MB", mb)
+        } else if kb >= 1 {
+            return String(format: "%.0f KB", kb)
+        } else {
+            return "\(bytes) B"
+        }
+    }
+
+    private func formatBytesPerSecond(_ bps: Double) -> String {
+        let kbps = bps / 1024
+        let mbps = kbps / 1024
+
+        if mbps >= 1 {
+            return String(format: "%.2f MB/s", mbps)
+        } else if kbps >= 1 {
+            return String(format: "%.1f KB/s", kbps)
+        } else {
+            return String(format: "%.0f B/s", bps)
+        }
     }
 }
 

@@ -58,6 +58,8 @@ final class SystemMonitor {
         let networkStats = getNetworkDelta()
         stats.networkInDelta = networkStats.bytesIn
         stats.networkOutDelta = networkStats.bytesOut
+        stats.bandwidthIn = networkStats.bandwidthIn
+        stats.bandwidthOut = networkStats.bandwidthOut
 
         currentStats = stats
 
@@ -146,11 +148,11 @@ final class SystemMonitor {
     }
 
     // MARK: - Network via getifaddrs
-    private func getNetworkDelta() -> (bytesIn: UInt64, bytesOut: UInt64) {
+    private func getNetworkDelta() -> (bytesIn: UInt64, bytesOut: UInt64, bandwidthIn: Double, bandwidthOut: Double) {
         var ifaddr: UnsafeMutablePointer<ifaddrs>?
 
         guard getifaddrs(&ifaddr) == 0, let firstAddr = ifaddr else {
-            return (0, 0)
+            return (0, 0, 0, 0)
         }
 
         defer { freeifaddrs(ifaddr) }
@@ -197,8 +199,12 @@ final class SystemMonitor {
 
         previousNetworkIn = totalIn
         previousNetworkOut = totalOut
+        let interval = now.timeIntervalSince(previousTimestamp ?? now)
         previousTimestamp = now
 
-        return (deltaIn, deltaOut)
+        let bandwidthIn = interval > 0 ? Double(deltaIn) / interval : 0
+        let bandwidthOut = interval > 0 ? Double(deltaOut) / interval : 0
+
+        return (deltaIn, deltaOut, bandwidthIn, bandwidthOut)
     }
 }

@@ -12,6 +12,8 @@ struct SystemStats {
     var diskTotal: UInt64 = 0
     var networkInDelta: UInt64 = 0
     var networkOutDelta: UInt64 = 0
+    var bandwidthIn: Double = 0
+    var bandwidthOut: Double = 0
 
     var cpuTotal: Double { cpuUser + cpuSystem }
 
