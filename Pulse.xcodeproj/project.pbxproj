@@ -24,6 +24,7 @@
 		B7E8EAFAFE2C52ED012E9DD9 /* ShortcutsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AD42D093C7D3E473117B37 /* ShortcutsManager.swift */; };
 		BF5CB28C276BC067CF6DFD9F /* SystemStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE311A73CA9AD4A7E7D86E64 /* SystemStats.swift */; };
 		D3919A9516653469F0EBC619 /* ProcessListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A14A878583436EFB2F6C202 /* ProcessListView.swift */; };
+		D824D63F41EB13B1AEC20ACB /* WidgetGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7B20A3E62D28A1848A2AD0 /* WidgetGalleryView.swift */; };
 		EB7610546B75F1B9B5F67E3D /* PulseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CAFF7B2E2B22C2220AEF3D /* PulseViewModel.swift */; };
 		F08BDC60BFCAE4D082386AE1 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCDB75EE36367B4F16B5766 /* HistoryView.swift */; };
 		FF152BDE6343A10B8627BC3C /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = BC374109C44EED84E8317D4E /* SQLite */; };
@@ -40,6 +41,7 @@
 		52CAFF7B2E2B22C2220AEF3D /* PulseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseViewModel.swift; sourceTree = "<group>"; };
 		5C7348B7E62FE9286096FD80 /* AlertNotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertNotificationService.swift; sourceTree = "<group>"; };
 		5D64C64CB1014815B6D17905 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		8E7B20A3E62D28A1848A2AD0 /* WidgetGalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetGalleryView.swift; sourceTree = "<group>"; };
 		94A1060D1C5415A45DADEAF2 /* iCloudSyncManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iCloudSyncManager.swift; sourceTree = "<group>"; };
 		9A14A878583436EFB2F6C202 /* ProcessListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessListView.swift; sourceTree = "<group>"; };
 		9D0EB559E75F7A25DAF8B764 /* ProcessHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessHistory.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				9A14A878583436EFB2F6C202 /* ProcessListView.swift */,
 				52CAFF7B2E2B22C2220AEF3D /* PulseViewModel.swift */,
 				5D64C64CB1014815B6D17905 /* Theme.swift */,
+				8E7B20A3E62D28A1848A2AD0 /* WidgetGalleryView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -228,6 +231,7 @@
 				AC3CE1F3E738456B70B1BEE4 /* SystemMonitor.swift in Sources */,
 				BF5CB28C276BC067CF6DFD9F /* SystemStats.swift in Sources */,
 				39386EB2B0ED47B49B901F83 /* Theme.swift in Sources */,
+				D824D63F41EB13B1AEC20ACB /* WidgetGalleryView.swift in Sources */,
 				B2B310DAE2A5ADBA057608AA /* iCloudSyncManager.swift in Sources */,
 				7DB00AC47DCC5AC6C503F544 /* main.swift in Sources */,
 			);

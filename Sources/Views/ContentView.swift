@@ -29,11 +29,17 @@ struct ContentView: View {
                 }
                 .tag(3)
 
+            WidgetGalleryView(viewModel: viewModel)
+                .tabItem {
+                    Label("Widgets", systemImage: "square.grid.2x2")
+                }
+                .tag(4)
+
             SettingsView(viewModel: viewModel)
                 .tabItem {
                     Label("Settings", systemImage: "gearshape")
                 }
-                .tag(4)
+                .tag(5)
         }
         .frame(width: 380, height: 420)
         .background(Theme.background)
