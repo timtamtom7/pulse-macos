@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2302703AB2BF0FB8CE0D4A5C /* ExportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDFAE31C4263E4680EAD3F8 /* ExportService.swift */; };
 		39386EB2B0ED47B49B901F83 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D64C64CB1014815B6D17905 /* Theme.swift */; };
 		5A69A9D4ACA587BF3F4151C8 /* AlertNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7348B7E62FE9286096FD80 /* AlertNotificationService.swift */; };
 		5CEB780D9A4E2A3287AD658C /* SettingsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18E7F9274B5ED0E09FCD76E /* SettingsStore.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0EDFAE31C4263E4680EAD3F8 /* ExportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportService.swift; sourceTree = "<group>"; };
 		13FEF2D2118D74C3572DF349 /* Pulse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pulse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C8114E11EF5B83C4C8DF215 /* DiskService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskService.swift; sourceTree = "<group>"; };
 		3194C17945FB60619E5EA63A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				5C7348B7E62FE9286096FD80 /* AlertNotificationService.swift */,
 				A20FC1AABB97506BBA610520 /* BatteryService.swift */,
 				2C8114E11EF5B83C4C8DF215 /* DiskService.swift */,
+				0EDFAE31C4263E4680EAD3F8 /* ExportService.swift */,
 				94A1060D1C5415A45DADEAF2 /* iCloudSyncManager.swift */,
 				D3A6C55A89CDC8714277C18B /* NetworkService.swift */,
 				C18E7F9274B5ED0E09FCD76E /* SettingsStore.swift */,
@@ -214,6 +217,7 @@
 				9C873DA1AB2CCD515CE1F608 /* BatteryService.swift in Sources */,
 				6D08FDE191CF767857B24411 /* ContentView.swift in Sources */,
 				8D5394069D311A71941A8EF4 /* DiskService.swift in Sources */,
+				2302703AB2BF0FB8CE0D4A5C /* ExportService.swift in Sources */,
 				F08BDC60BFCAE4D082386AE1 /* HistoryView.swift in Sources */,
 				8771847A0BA1D6E515DDB8D5 /* NetworkService.swift in Sources */,
 				807CA1E30ECD9B449A771DBD /* ProcessHistory.swift in Sources */,

@@ -32,7 +32,7 @@ struct SystemStats {
 
 // MARK: - Sample (Historical Data Point)
 
-struct Sample: Identifiable {
+struct Sample: Identifiable, Codable {
     let id: Int64
     let timestamp: Date
     let cpuUser: Double
