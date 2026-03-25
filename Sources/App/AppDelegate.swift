@@ -9,6 +9,9 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     private var eventMonitor: Any?
 
     func applicationDidFinishLaunching(_ notification: Notification) {
+        // Initialize PulseState singleton for shortcuts
+        PulseState.shared.configure(viewModel: viewModel)
+
         setupMenu()
         setupStatusItem()
         setupPopover()
@@ -18,6 +21,9 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
         // Load persisted samples on startup
         _ = SettingsStore.shared.getRecentSamples(hours: 24)
+
+        // Request notification authorization
+        AlertNotificationService.shared.requestAuthorization()
     }
 
     func applicationWillTerminate(_ notification: Notification) {
@@ -44,6 +50,9 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
                 guard let self = self else { return }
                 self.updateStatusItemButton(self.statusItem.button!)
                 self.viewModel.stats = stats
+
+                // Check for CPU/RAM spikes
+                AlertNotificationService.shared.checkStats(stats)
             }
         }
     }
@@ -51,16 +60,11 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     private func updateStatusItemButton(_ button: NSStatusBarButton) {
         let stats = viewModel.stats
 
-        // CPU percentage text
         let cpuText = String(format: "CPU %.0f%%", stats.cpuTotal)
-
-        // RAM bar representation
         let ramPct = stats.ramPercentage
 
-        // Build attributed string
         let combinedText = NSMutableAttributedString()
 
-        // CPU text
         let cpuAttr = NSAttributedString(
             string: cpuText,
             attributes: [
@@ -70,13 +74,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         )
         combinedText.append(cpuAttr)
 
-        // Spacer
-        combinedText.append(NSAttributedString(
-            string: "  ",
-            attributes: [:]
-        ))
+        combinedText.append(NSAttributedString(string: "  ", attributes: [:]))
 
-        // RAM bar
         let ramBarAttr = createRamBarAttr(percentage: ramPct)
         combinedText.append(ramBarAttr)
 
@@ -92,12 +91,10 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         let renderer = NSImage(size: size, flipped: false) { rect in
             let fillWidth = rect.width * CGFloat(min(max(percentage, 0), 1))
 
-            // Background
             NSColor.quaternaryLabelColor.setFill()
             let bgPath = NSBezierPath(roundedRect: rect, xRadius: 2, yRadius: 2)
             bgPath.fill()
 
-            // Fill
             let fillColor: NSColor
             if percentage < 0.7 {
                 fillColor = NSColor.systemGreen
@@ -143,13 +140,11 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     private func setupMenu() {
         let mainMenu = NSMenu()
 
-        // App menu
         let appMenuItem = NSMenuItem()
         let appMenu = NSMenu()
         appMenu.addItem(withTitle: "About Pulse", action: #selector(showAbout), keyEquivalent: "")
         appMenu.addItem(NSMenuItem.separator())
 
-        // Launch at login
         if #available(macOS 13.0, *) {
             let launchItem = NSMenuItem(title: "Launch at Login", action: #selector(toggleLaunchAtLogin), keyEquivalent: "")
             launchItem.state = isLaunchAtLogin() ? .on : .off
@@ -173,7 +168,6 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         } else {
             popover.show(relativeTo: button.bounds, of: button, preferredEdge: .minY)
 
-            // Ensure popover window has no title bar
             if let window = popover.contentViewController?.view.window {
                 window.titlebarAppearsTransparent = true
                 window.titleVisibility = .hidden
@@ -197,7 +191,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
                 print("Failed to toggle launch at login: \(error)")
             }
         }
-        setupMenu() // Refresh menu to update checkmark
+        setupMenu()
     }
 
     private func isLaunchAtLogin() -> Bool {
@@ -205,5 +199,21 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
             return SMAppService.mainApp.status == .enabled
         }
         return false
+    }
+}
+
+// MARK: - Global State for Shortcuts
+
+@MainActor
+final class PulseState {
+    static let shared = PulseState()
+
+    var viewModel: PulseViewModel!
+    var stats: SystemStats { viewModel?.stats ?? .zero }
+
+    private init() {}
+
+    func configure(viewModel: PulseViewModel) {
+        self.viewModel = viewModel
     }
 }
