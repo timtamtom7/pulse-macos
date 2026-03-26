@@ -33,6 +33,7 @@ targets:
       - Resources
     dependencies:
       - package: SQLite
+        product: SQLite
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.pulse.app

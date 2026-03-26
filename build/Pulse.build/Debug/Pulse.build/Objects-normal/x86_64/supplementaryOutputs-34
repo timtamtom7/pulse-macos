@@ -1,0 +1,23 @@
+{
+  "/Users/mauriello/Dev/pulse-macos/Sources/Models/RemoteMac.swift" : {
+    "const-values" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/RemoteMac.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/RemoteMac.d",
+    "diagnostics" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/RemoteMac.dia",
+    "object" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/RemoteMac.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/RemoteMac.swiftdeps"
+  },
+  "/Users/mauriello/Dev/pulse-macos/Sources/Services/RemoteMonitoringService.swift" : {
+    "const-values" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/RemoteMonitoringService.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/RemoteMonitoringService.d",
+    "diagnostics" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/RemoteMonitoringService.dia",
+    "object" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/RemoteMonitoringService.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/RemoteMonitoringService.swiftdeps"
+  },
+  "/Users/mauriello/Dev/pulse-macos/Sources/Views/RemoteMonitoringView.swift" : {
+    "const-values" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/RemoteMonitoringView.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/RemoteMonitoringView.d",
+    "diagnostics" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/RemoteMonitoringView.dia",
+    "object" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/RemoteMonitoringView.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/RemoteMonitoringView.swiftdeps"
+  }
+}

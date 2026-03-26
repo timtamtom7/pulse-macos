@@ -1,0 +1,23 @@
+{
+  "/Users/mauriello/Dev/pulse-macos/Sources/Services/SettingsStore.swift" : {
+    "const-values" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/SettingsStore.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/SettingsStore.d",
+    "diagnostics" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/SettingsStore.dia",
+    "object" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/SettingsStore.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/SettingsStore.swiftdeps"
+  },
+  "/Users/mauriello/Dev/pulse-macos/Sources/Services/ShortcutsManager.swift" : {
+    "const-values" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/ShortcutsManager.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/ShortcutsManager.d",
+    "diagnostics" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/ShortcutsManager.dia",
+    "object" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/ShortcutsManager.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/ShortcutsManager.swiftdeps"
+  },
+  "/Users/mauriello/Dev/pulse-macos/Sources/Services/SubscriptionManager.swift" : {
+    "const-values" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/SubscriptionManager.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/SubscriptionManager.d",
+    "diagnostics" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/SubscriptionManager.dia",
+    "object" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/SubscriptionManager.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/SubscriptionManager.swiftdeps"
+  }
+}

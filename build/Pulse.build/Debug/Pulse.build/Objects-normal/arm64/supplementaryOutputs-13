@@ -1,0 +1,23 @@
+{
+  "/Users/mauriello/Dev/pulse-macos/Sources/Models/ProcessHistory.swift" : {
+    "const-values" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/ProcessHistory.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/ProcessHistory.d",
+    "diagnostics" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/ProcessHistory.dia",
+    "object" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/ProcessHistory.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/ProcessHistory.swiftdeps"
+  },
+  "/Users/mauriello/Dev/pulse-macos/Sources/Views/ProcessListView.swift" : {
+    "const-values" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/ProcessListView.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/ProcessListView.d",
+    "diagnostics" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/ProcessListView.dia",
+    "object" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/ProcessListView.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/ProcessListView.swiftdeps"
+  },
+  "/Users/mauriello/Dev/pulse-macos/Sources/Views/PulseViewModel.swift" : {
+    "const-values" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/PulseViewModel.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/PulseViewModel.d",
+    "diagnostics" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/PulseViewModel.dia",
+    "object" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/PulseViewModel.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/PulseViewModel.swiftdeps"
+  }
+}

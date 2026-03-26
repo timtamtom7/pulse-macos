@@ -1,0 +1,23 @@
+{
+  "/Users/mauriello/Dev/pulse-macos/Sources/Models/SubscriptionTier.swift" : {
+    "const-values" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/SubscriptionTier.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/SubscriptionTier.d",
+    "diagnostics" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/SubscriptionTier.dia",
+    "object" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/SubscriptionTier.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/SubscriptionTier.swiftdeps"
+  },
+  "/Users/mauriello/Dev/pulse-macos/Sources/Models/SystemStats.swift" : {
+    "const-values" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/SystemStats.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/SystemStats.d",
+    "diagnostics" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/SystemStats.dia",
+    "object" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/SystemStats.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/SystemStats.swiftdeps"
+  },
+  "/Users/mauriello/Dev/pulse-macos/Sources/Services/SystemMonitor.swift" : {
+    "const-values" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/SystemMonitor.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/SystemMonitor.d",
+    "diagnostics" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/SystemMonitor.dia",
+    "object" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/SystemMonitor.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/SystemMonitor.swiftdeps"
+  }
+}

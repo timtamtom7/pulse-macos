@@ -24,7 +24,9 @@ public final class PulsePrivacyService {
     public func encrypt(_ data: Data) throws -> Data {
         let key = try getOrCreateKey()
         let box = try AES.GCM.seal(data, using: key)
-        guard let combined = box.combined else { throw NSError(domain: "PulsePrivacy", code: -1) }
+        guard let combined = box.combined else {
+            throw NSError(domain: "PulsePrivacy", code: -1, userInfo: [NSLocalizedDescriptionKey: "Failed to get combined ciphertext from AES.GCM seal"])
+        }
         return combined
     }
     

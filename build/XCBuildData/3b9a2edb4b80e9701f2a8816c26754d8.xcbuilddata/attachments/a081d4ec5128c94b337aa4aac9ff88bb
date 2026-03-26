@@ -1,0 +1,289 @@
+{
+  "" : {
+    "diagnostics" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/Pulse-primary.dia",
+    "emit-module-dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/Pulse-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/Pulse-primary-emit-module.dia",
+    "pch" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/Pulse-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/Pulse-primary.swiftdeps"
+  },
+  "/Users/mauriello/Dev/pulse-macos/Sources/AI/AnomalyDetectionEngine.swift" : {
+    "const-values" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/AnomalyDetectionEngine.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/AnomalyDetectionEngine.d",
+    "diagnostics" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/AnomalyDetectionEngine.dia",
+    "index-unit-output-path" : "/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/AnomalyDetectionEngine.o",
+    "llvm-bc" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/AnomalyDetectionEngine.bc",
+    "object" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/AnomalyDetectionEngine.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/AnomalyDetectionEngine.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/AnomalyDetectionEngine~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/pulse-macos/Sources/App/AppDelegate.swift" : {
+    "const-values" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/AppDelegate.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/AppDelegate.d",
+    "diagnostics" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/AppDelegate.dia",
+    "index-unit-output-path" : "/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/AppDelegate.o",
+    "llvm-bc" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/AppDelegate.bc",
+    "object" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/AppDelegate.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/AppDelegate.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/AppDelegate~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/pulse-macos/Sources/App/main.swift" : {
+    "const-values" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/main.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/main.d",
+    "diagnostics" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/main.dia",
+    "index-unit-output-path" : "/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/main.o",
+    "llvm-bc" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/main.bc",
+    "object" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/main.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/main.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/main~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/pulse-macos/Sources/Models/Alerts.swift" : {
+    "const-values" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/Alerts.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/Alerts.d",
+    "diagnostics" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/Alerts.dia",
+    "index-unit-output-path" : "/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/Alerts.o",
+    "llvm-bc" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/Alerts.bc",
+    "object" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/Alerts.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/Alerts.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/Alerts~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/pulse-macos/Sources/Models/ProcessHistory.swift" : {
+    "const-values" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/ProcessHistory.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/ProcessHistory.d",
+    "diagnostics" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/ProcessHistory.dia",
+    "index-unit-output-path" : "/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/ProcessHistory.o",
+    "llvm-bc" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/ProcessHistory.bc",
+    "object" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/ProcessHistory.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/ProcessHistory.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/ProcessHistory~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/pulse-macos/Sources/Models/RemoteMac.swift" : {
+    "const-values" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/RemoteMac.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/RemoteMac.d",
+    "diagnostics" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/RemoteMac.dia",
+    "index-unit-output-path" : "/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/RemoteMac.o",
+    "llvm-bc" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/RemoteMac.bc",
+    "object" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/RemoteMac.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/RemoteMac.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/RemoteMac~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/pulse-macos/Sources/Models/SubscriptionTier.swift" : {
+    "const-values" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/SubscriptionTier.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/SubscriptionTier.d",
+    "diagnostics" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/SubscriptionTier.dia",
+    "index-unit-output-path" : "/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/SubscriptionTier.o",
+    "llvm-bc" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/SubscriptionTier.bc",
+    "object" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/SubscriptionTier.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/SubscriptionTier.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/SubscriptionTier~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/pulse-macos/Sources/Models/SystemStats.swift" : {
+    "const-values" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/SystemStats.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/SystemStats.d",
+    "diagnostics" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/SystemStats.dia",
+    "index-unit-output-path" : "/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/SystemStats.o",
+    "llvm-bc" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/SystemStats.bc",
+    "object" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/SystemStats.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/SystemStats.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/SystemStats~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/pulse-macos/Sources/Services/AlertNotificationService.swift" : {
+    "const-values" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/AlertNotificationService.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/AlertNotificationService.d",
+    "diagnostics" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/AlertNotificationService.dia",
+    "index-unit-output-path" : "/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/AlertNotificationService.o",
+    "llvm-bc" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/AlertNotificationService.bc",
+    "object" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/AlertNotificationService.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/AlertNotificationService.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/AlertNotificationService~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/pulse-macos/Sources/Services/BatteryService.swift" : {
+    "const-values" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/BatteryService.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/BatteryService.d",
+    "diagnostics" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/BatteryService.dia",
+    "index-unit-output-path" : "/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/BatteryService.o",
+    "llvm-bc" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/BatteryService.bc",
+    "object" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/BatteryService.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/BatteryService.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/BatteryService~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/pulse-macos/Sources/Services/DiskService.swift" : {
+    "const-values" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/DiskService.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/DiskService.d",
+    "diagnostics" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/DiskService.dia",
+    "index-unit-output-path" : "/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/DiskService.o",
+    "llvm-bc" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/DiskService.bc",
+    "object" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/DiskService.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/DiskService.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/DiskService~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/pulse-macos/Sources/Services/ExportService.swift" : {
+    "const-values" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/ExportService.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/ExportService.d",
+    "diagnostics" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/ExportService.dia",
+    "index-unit-output-path" : "/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/ExportService.o",
+    "llvm-bc" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/ExportService.bc",
+    "object" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/ExportService.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/ExportService.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/ExportService~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/pulse-macos/Sources/Services/NetworkService.swift" : {
+    "const-values" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/NetworkService.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/NetworkService.d",
+    "diagnostics" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/NetworkService.dia",
+    "index-unit-output-path" : "/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/NetworkService.o",
+    "llvm-bc" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/NetworkService.bc",
+    "object" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/NetworkService.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/NetworkService.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/NetworkService~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/pulse-macos/Sources/Services/PrivacyService.swift" : {
+    "const-values" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/PrivacyService.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/PrivacyService.d",
+    "diagnostics" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/PrivacyService.dia",
+    "index-unit-output-path" : "/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/PrivacyService.o",
+    "llvm-bc" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/PrivacyService.bc",
+    "object" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/PrivacyService.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/PrivacyService.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/PrivacyService~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/pulse-macos/Sources/Services/RemoteMonitoringService.swift" : {
+    "const-values" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/RemoteMonitoringService.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/RemoteMonitoringService.d",
+    "diagnostics" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/RemoteMonitoringService.dia",
+    "index-unit-output-path" : "/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/RemoteMonitoringService.o",
+    "llvm-bc" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/RemoteMonitoringService.bc",
+    "object" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/RemoteMonitoringService.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/RemoteMonitoringService.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/RemoteMonitoringService~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/pulse-macos/Sources/Services/SettingsStore.swift" : {
+    "const-values" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/SettingsStore.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/SettingsStore.d",
+    "diagnostics" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/SettingsStore.dia",
+    "index-unit-output-path" : "/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/SettingsStore.o",
+    "llvm-bc" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/SettingsStore.bc",
+    "object" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/SettingsStore.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/SettingsStore.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/SettingsStore~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/pulse-macos/Sources/Services/ShortcutsManager.swift" : {
+    "const-values" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/ShortcutsManager.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/ShortcutsManager.d",
+    "diagnostics" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/ShortcutsManager.dia",
+    "index-unit-output-path" : "/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/ShortcutsManager.o",
+    "llvm-bc" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/ShortcutsManager.bc",
+    "object" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/ShortcutsManager.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/ShortcutsManager.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/ShortcutsManager~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/pulse-macos/Sources/Services/SubscriptionManager.swift" : {
+    "const-values" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/SubscriptionManager.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/SubscriptionManager.d",
+    "diagnostics" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/SubscriptionManager.dia",
+    "index-unit-output-path" : "/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/SubscriptionManager.o",
+    "llvm-bc" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/SubscriptionManager.bc",
+    "object" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/SubscriptionManager.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/SubscriptionManager.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/SubscriptionManager~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/pulse-macos/Sources/Services/SystemMonitor.swift" : {
+    "const-values" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/SystemMonitor.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/SystemMonitor.d",
+    "diagnostics" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/SystemMonitor.dia",
+    "index-unit-output-path" : "/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/SystemMonitor.o",
+    "llvm-bc" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/SystemMonitor.bc",
+    "object" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/SystemMonitor.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/SystemMonitor.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/SystemMonitor~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/pulse-macos/Sources/Services/iCloudSyncManager.swift" : {
+    "const-values" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/iCloudSyncManager.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/iCloudSyncManager.d",
+    "diagnostics" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/iCloudSyncManager.dia",
+    "index-unit-output-path" : "/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/iCloudSyncManager.o",
+    "llvm-bc" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/iCloudSyncManager.bc",
+    "object" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/iCloudSyncManager.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/iCloudSyncManager.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/iCloudSyncManager~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/pulse-macos/Sources/Views/AppIconView.swift" : {
+    "const-values" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/AppIconView.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/AppIconView.d",
+    "diagnostics" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/AppIconView.dia",
+    "index-unit-output-path" : "/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/AppIconView.o",
+    "llvm-bc" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/AppIconView.bc",
+    "object" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/AppIconView.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/AppIconView.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/AppIconView~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/pulse-macos/Sources/Views/ContentView.swift" : {
+    "const-values" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/ContentView.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/ContentView.d",
+    "diagnostics" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/ContentView.dia",
+    "index-unit-output-path" : "/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/ContentView.o",
+    "llvm-bc" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/ContentView.bc",
+    "object" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/ContentView.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/ContentView.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/ContentView~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/pulse-macos/Sources/Views/HistoryView.swift" : {
+    "const-values" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/HistoryView.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/HistoryView.d",
+    "diagnostics" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/HistoryView.dia",
+    "index-unit-output-path" : "/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/HistoryView.o",
+    "llvm-bc" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/HistoryView.bc",
+    "object" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/HistoryView.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/HistoryView.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/HistoryView~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/pulse-macos/Sources/Views/ProcessListView.swift" : {
+    "const-values" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/ProcessListView.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/ProcessListView.d",
+    "diagnostics" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/ProcessListView.dia",
+    "index-unit-output-path" : "/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/ProcessListView.o",
+    "llvm-bc" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/ProcessListView.bc",
+    "object" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/ProcessListView.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/ProcessListView.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/ProcessListView~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/pulse-macos/Sources/Views/PulseViewModel.swift" : {
+    "const-values" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/PulseViewModel.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/PulseViewModel.d",
+    "diagnostics" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/PulseViewModel.dia",
+    "index-unit-output-path" : "/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/PulseViewModel.o",
+    "llvm-bc" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/PulseViewModel.bc",
+    "object" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/PulseViewModel.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/PulseViewModel.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/PulseViewModel~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/pulse-macos/Sources/Views/RemoteMonitoringView.swift" : {
+    "const-values" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/RemoteMonitoringView.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/RemoteMonitoringView.d",
+    "diagnostics" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/RemoteMonitoringView.dia",
+    "index-unit-output-path" : "/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/RemoteMonitoringView.o",
+    "llvm-bc" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/RemoteMonitoringView.bc",
+    "object" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/RemoteMonitoringView.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/RemoteMonitoringView.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/RemoteMonitoringView~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/pulse-macos/Sources/Views/Theme.swift" : {
+    "const-values" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/Theme.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/Theme.d",
+    "diagnostics" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/Theme.dia",
+    "index-unit-output-path" : "/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/Theme.o",
+    "llvm-bc" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/Theme.bc",
+    "object" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/Theme.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/Theme.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/Theme~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/pulse-macos/Sources/Views/WidgetGalleryView.swift" : {
+    "const-values" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/WidgetGalleryView.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/WidgetGalleryView.d",
+    "diagnostics" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/WidgetGalleryView.dia",
+    "index-unit-output-path" : "/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/WidgetGalleryView.o",
+    "llvm-bc" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/WidgetGalleryView.bc",
+    "object" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/WidgetGalleryView.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/WidgetGalleryView.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/Pulse.build/Objects-normal/x86_64/WidgetGalleryView~partial.swiftmodule"
+  }
+}

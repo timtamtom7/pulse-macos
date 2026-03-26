@@ -198,9 +198,15 @@ final class SystemMonitor {
             }
         }
 
+        let interval: TimeInterval
+        if let prev = previousTimestamp {
+            interval = now.timeIntervalSince(prev)
+        } else {
+            interval = 0
+        }
+
         previousNetworkIn = totalIn
         previousNetworkOut = totalOut
-        let interval = now.timeIntervalSince(previousTimestamp ?? now)
         previousTimestamp = now
 
         let bandwidthIn = interval > 0 ? Double(deltaIn) / interval : 0
