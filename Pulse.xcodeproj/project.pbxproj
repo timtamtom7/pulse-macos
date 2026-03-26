@@ -10,6 +10,7 @@
 		054D9DEA9A0EF191C125BF28 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F466E843B0C32E31940CED7E /* Localizable.strings */; };
 		2302703AB2BF0FB8CE0D4A5C /* ExportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDFAE31C4263E4680EAD3F8 /* ExportService.swift */; };
 		298EC8787CD1AEA4416EF1EA /* AppIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7BAE915B518F91E5E313F1 /* AppIconView.swift */; };
+		2E0B591B49F8D3240D492946 /* PrivacyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F35099CF9B21FC8F28E2467 /* PrivacyService.swift */; };
 		39386EB2B0ED47B49B901F83 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D64C64CB1014815B6D17905 /* Theme.swift */; };
 		5A69A9D4ACA587BF3F4151C8 /* AlertNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7348B7E62FE9286096FD80 /* AlertNotificationService.swift */; };
 		5CEB780D9A4E2A3287AD658C /* SettingsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18E7F9274B5ED0E09FCD76E /* SettingsStore.swift */; };
@@ -23,10 +24,12 @@
 		96A36FD8ECBA9E96BBDFDDBD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389813B52959436D5D601C07 /* AppDelegate.swift */; };
 		9C873DA1AB2CCD515CE1F608 /* BatteryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20FC1AABB97506BBA610520 /* BatteryService.swift */; };
 		AC3CE1F3E738456B70B1BEE4 /* SystemMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8113055C9F0F43916F892F /* SystemMonitor.swift */; };
+		B0C9E91AB679F1ED5C715774 /* SubscriptionTier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C1C74407164A7E51A6A23B /* SubscriptionTier.swift */; };
 		B2B310DAE2A5ADBA057608AA /* iCloudSyncManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A1060D1C5415A45DADEAF2 /* iCloudSyncManager.swift */; };
 		B7E8EAFAFE2C52ED012E9DD9 /* ShortcutsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AD42D093C7D3E473117B37 /* ShortcutsManager.swift */; };
 		B7ECCAD1CBE68BC4A2EB5244 /* RemoteMonitoringService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B9F24831D7C3B14E5B5A24 /* RemoteMonitoringService.swift */; };
 		BF5CB28C276BC067CF6DFD9F /* SystemStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE311A73CA9AD4A7E7D86E64 /* SystemStats.swift */; };
+		C341FF01E9E9DFFD20D101CE /* SubscriptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68CCE760D6A0C99C786CEAD /* SubscriptionManager.swift */; };
 		CA97043AC1A89CBC4E74BBCC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 74110016650366C741E2D865 /* Localizable.strings */; };
 		D3919A9516653469F0EBC619 /* ProcessListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A14A878583436EFB2F6C202 /* ProcessListView.swift */; };
 		D824D63F41EB13B1AEC20ACB /* WidgetGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7B20A3E62D28A1848A2AD0 /* WidgetGalleryView.swift */; };
@@ -42,6 +45,7 @@
 /* Begin PBXFileReference section */
 		0A6C4CFC4DB5AF493D166885 /* AnomalyDetectionEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnomalyDetectionEngine.swift; sourceTree = "<group>"; };
 		0EDFAE31C4263E4680EAD3F8 /* ExportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportService.swift; sourceTree = "<group>"; };
+		0F35099CF9B21FC8F28E2467 /* PrivacyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyService.swift; sourceTree = "<group>"; };
 		13FEF2D2118D74C3572DF349 /* Pulse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pulse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C8114E11EF5B83C4C8DF215 /* DiskService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskService.swift; sourceTree = "<group>"; };
 		3194C17945FB60619E5EA63A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -67,9 +71,11 @@
 		AEB98B8222EFC364842BD8ED /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		C18E7F9274B5ED0E09FCD76E /* SettingsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsStore.swift; sourceTree = "<group>"; };
 		C2AD42D093C7D3E473117B37 /* ShortcutsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutsManager.swift; sourceTree = "<group>"; };
+		C68CCE760D6A0C99C786CEAD /* SubscriptionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionManager.swift; sourceTree = "<group>"; };
 		CFBCABE226EEE79C1CF663E8 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		D3A6C55A89CDC8714277C18B /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		DCCDB75EE36367B4F16B5766 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		E5C1C74407164A7E51A6A23B /* SubscriptionTier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionTier.swift; sourceTree = "<group>"; };
 		F466E843B0C32E31940CED7E /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FBF9382B5C984A2EB5F23900 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -119,6 +125,7 @@
 				467F99243D58E7E238A75235 /* Alerts.swift */,
 				9D0EB559E75F7A25DAF8B764 /* ProcessHistory.swift */,
 				38E4264D4DAA288E0115F3B8 /* RemoteMac.swift */,
+				E5C1C74407164A7E51A6A23B /* SubscriptionTier.swift */,
 				AE311A73CA9AD4A7E7D86E64 /* SystemStats.swift */,
 			);
 			path = Models;
@@ -151,9 +158,11 @@
 				0EDFAE31C4263E4680EAD3F8 /* ExportService.swift */,
 				94A1060D1C5415A45DADEAF2 /* iCloudSyncManager.swift */,
 				D3A6C55A89CDC8714277C18B /* NetworkService.swift */,
+				0F35099CF9B21FC8F28E2467 /* PrivacyService.swift */,
 				52B9F24831D7C3B14E5B5A24 /* RemoteMonitoringService.swift */,
 				C18E7F9274B5ED0E09FCD76E /* SettingsStore.swift */,
 				C2AD42D093C7D3E473117B37 /* ShortcutsManager.swift */,
+				C68CCE760D6A0C99C786CEAD /* SubscriptionManager.swift */,
 				4E8113055C9F0F43916F892F /* SystemMonitor.swift */,
 			);
 			path = Services;
@@ -287,6 +296,7 @@
 				2302703AB2BF0FB8CE0D4A5C /* ExportService.swift in Sources */,
 				F08BDC60BFCAE4D082386AE1 /* HistoryView.swift in Sources */,
 				8771847A0BA1D6E515DDB8D5 /* NetworkService.swift in Sources */,
+				2E0B591B49F8D3240D492946 /* PrivacyService.swift in Sources */,
 				807CA1E30ECD9B449A771DBD /* ProcessHistory.swift in Sources */,
 				D3919A9516653469F0EBC619 /* ProcessListView.swift in Sources */,
 				EB7610546B75F1B9B5F67E3D /* PulseViewModel.swift in Sources */,
@@ -295,6 +305,8 @@
 				E346E0EC392D86AE4175B4EA /* RemoteMonitoringView.swift in Sources */,
 				5CEB780D9A4E2A3287AD658C /* SettingsStore.swift in Sources */,
 				B7E8EAFAFE2C52ED012E9DD9 /* ShortcutsManager.swift in Sources */,
+				C341FF01E9E9DFFD20D101CE /* SubscriptionManager.swift in Sources */,
+				B0C9E91AB679F1ED5C715774 /* SubscriptionTier.swift in Sources */,
 				AC3CE1F3E738456B70B1BEE4 /* SystemMonitor.swift in Sources */,
 				BF5CB28C276BC067CF6DFD9F /* SystemStats.swift in Sources */,
 				39386EB2B0ED47B49B901F83 /* Theme.swift in Sources */,
