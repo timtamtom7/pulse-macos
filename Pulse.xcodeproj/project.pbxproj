@@ -16,6 +16,7 @@
 		6D08FDE191CF767857B24411 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3194C17945FB60619E5EA63A /* ContentView.swift */; };
 		7DB00AC47DCC5AC6C503F544 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBCABE226EEE79C1CF663E8 /* main.swift */; };
 		807CA1E30ECD9B449A771DBD /* ProcessHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0EB559E75F7A25DAF8B764 /* ProcessHistory.swift */; };
+		82BE742C73EA1B6B9F5E10F8 /* RemoteMac.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E4264D4DAA288E0115F3B8 /* RemoteMac.swift */; };
 		8771847A0BA1D6E515DDB8D5 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A6C55A89CDC8714277C18B /* NetworkService.swift */; };
 		8D2DDB152140DE8053C55749 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467F99243D58E7E238A75235 /* Alerts.swift */; };
 		8D5394069D311A71941A8EF4 /* DiskService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8114E11EF5B83C4C8DF215 /* DiskService.swift */; };
@@ -24,11 +25,13 @@
 		AC3CE1F3E738456B70B1BEE4 /* SystemMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8113055C9F0F43916F892F /* SystemMonitor.swift */; };
 		B2B310DAE2A5ADBA057608AA /* iCloudSyncManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A1060D1C5415A45DADEAF2 /* iCloudSyncManager.swift */; };
 		B7E8EAFAFE2C52ED012E9DD9 /* ShortcutsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AD42D093C7D3E473117B37 /* ShortcutsManager.swift */; };
+		B7ECCAD1CBE68BC4A2EB5244 /* RemoteMonitoringService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B9F24831D7C3B14E5B5A24 /* RemoteMonitoringService.swift */; };
 		BF5CB28C276BC067CF6DFD9F /* SystemStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE311A73CA9AD4A7E7D86E64 /* SystemStats.swift */; };
 		CA97043AC1A89CBC4E74BBCC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 74110016650366C741E2D865 /* Localizable.strings */; };
 		D3919A9516653469F0EBC619 /* ProcessListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A14A878583436EFB2F6C202 /* ProcessListView.swift */; };
 		D824D63F41EB13B1AEC20ACB /* WidgetGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7B20A3E62D28A1848A2AD0 /* WidgetGalleryView.swift */; };
 		DEBD006C8DA8E81C8EAB4452 /* AnomalyDetectionEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6C4CFC4DB5AF493D166885 /* AnomalyDetectionEngine.swift */; };
+		E346E0EC392D86AE4175B4EA /* RemoteMonitoringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9798F5BA0B914821D8E1BC /* RemoteMonitoringView.swift */; };
 		E550D9E941CD5CC374492260 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3EEB7994C78B8CDCD6575029 /* Localizable.strings */; };
 		EB7610546B75F1B9B5F67E3D /* PulseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CAFF7B2E2B22C2220AEF3D /* PulseViewModel.swift */; };
 		F08BDC60BFCAE4D082386AE1 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCDB75EE36367B4F16B5766 /* HistoryView.swift */; };
@@ -43,9 +46,11 @@
 		2C8114E11EF5B83C4C8DF215 /* DiskService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskService.swift; sourceTree = "<group>"; };
 		3194C17945FB60619E5EA63A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		389813B52959436D5D601C07 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		38E4264D4DAA288E0115F3B8 /* RemoteMac.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteMac.swift; sourceTree = "<group>"; };
 		3EEB7994C78B8CDCD6575029 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		467F99243D58E7E238A75235 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		4E8113055C9F0F43916F892F /* SystemMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemMonitor.swift; sourceTree = "<group>"; };
+		52B9F24831D7C3B14E5B5A24 /* RemoteMonitoringService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteMonitoringService.swift; sourceTree = "<group>"; };
 		52CAFF7B2E2B22C2220AEF3D /* PulseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseViewModel.swift; sourceTree = "<group>"; };
 		5B7BAE915B518F91E5E313F1 /* AppIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconView.swift; sourceTree = "<group>"; };
 		5C7348B7E62FE9286096FD80 /* AlertNotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertNotificationService.swift; sourceTree = "<group>"; };
@@ -55,6 +60,7 @@
 		94A1060D1C5415A45DADEAF2 /* iCloudSyncManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iCloudSyncManager.swift; sourceTree = "<group>"; };
 		9A14A878583436EFB2F6C202 /* ProcessListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessListView.swift; sourceTree = "<group>"; };
 		9D0EB559E75F7A25DAF8B764 /* ProcessHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessHistory.swift; sourceTree = "<group>"; };
+		9E9798F5BA0B914821D8E1BC /* RemoteMonitoringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteMonitoringView.swift; sourceTree = "<group>"; };
 		A20FC1AABB97506BBA610520 /* BatteryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryService.swift; sourceTree = "<group>"; };
 		A7F79D17FCA98DBCF9BF859C /* Pulse.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Pulse.entitlements; sourceTree = "<group>"; };
 		AE311A73CA9AD4A7E7D86E64 /* SystemStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemStats.swift; sourceTree = "<group>"; };
@@ -112,6 +118,7 @@
 			children = (
 				467F99243D58E7E238A75235 /* Alerts.swift */,
 				9D0EB559E75F7A25DAF8B764 /* ProcessHistory.swift */,
+				38E4264D4DAA288E0115F3B8 /* RemoteMac.swift */,
 				AE311A73CA9AD4A7E7D86E64 /* SystemStats.swift */,
 			);
 			path = Models;
@@ -144,6 +151,7 @@
 				0EDFAE31C4263E4680EAD3F8 /* ExportService.swift */,
 				94A1060D1C5415A45DADEAF2 /* iCloudSyncManager.swift */,
 				D3A6C55A89CDC8714277C18B /* NetworkService.swift */,
+				52B9F24831D7C3B14E5B5A24 /* RemoteMonitoringService.swift */,
 				C18E7F9274B5ED0E09FCD76E /* SettingsStore.swift */,
 				C2AD42D093C7D3E473117B37 /* ShortcutsManager.swift */,
 				4E8113055C9F0F43916F892F /* SystemMonitor.swift */,
@@ -159,6 +167,7 @@
 				DCCDB75EE36367B4F16B5766 /* HistoryView.swift */,
 				9A14A878583436EFB2F6C202 /* ProcessListView.swift */,
 				52CAFF7B2E2B22C2220AEF3D /* PulseViewModel.swift */,
+				9E9798F5BA0B914821D8E1BC /* RemoteMonitoringView.swift */,
 				5D64C64CB1014815B6D17905 /* Theme.swift */,
 				8E7B20A3E62D28A1848A2AD0 /* WidgetGalleryView.swift */,
 			);
@@ -281,6 +290,9 @@
 				807CA1E30ECD9B449A771DBD /* ProcessHistory.swift in Sources */,
 				D3919A9516653469F0EBC619 /* ProcessListView.swift in Sources */,
 				EB7610546B75F1B9B5F67E3D /* PulseViewModel.swift in Sources */,
+				82BE742C73EA1B6B9F5E10F8 /* RemoteMac.swift in Sources */,
+				B7ECCAD1CBE68BC4A2EB5244 /* RemoteMonitoringService.swift in Sources */,
+				E346E0EC392D86AE4175B4EA /* RemoteMonitoringView.swift in Sources */,
 				5CEB780D9A4E2A3287AD658C /* SettingsStore.swift in Sources */,
 				B7E8EAFAFE2C52ED012E9DD9 /* ShortcutsManager.swift in Sources */,
 				AC3CE1F3E738456B70B1BEE4 /* SystemMonitor.swift in Sources */,

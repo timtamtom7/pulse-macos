@@ -29,17 +29,29 @@ struct ContentView: View {
                 }
                 .tag(3)
 
+            DashboardView()
+                .tabItem {
+                    Label("Dashboard", systemImage: "rectangle.grid.1x2")
+                }
+                .tag(4)
+
+            HistoricalReportsView()
+                .tabItem {
+                    Label("Reports", systemImage: "doc.text")
+                }
+                .tag(5)
+
             WidgetGalleryView(viewModel: viewModel)
                 .tabItem {
                     Label("Widgets", systemImage: "square.grid.2x2")
                 }
-                .tag(4)
+                .tag(6)
 
             SettingsView(viewModel: viewModel)
                 .tabItem {
                     Label("Settings", systemImage: "gearshape")
                 }
-                .tag(5)
+                .tag(7)
         }
         .frame(width: 380, height: 420)
         .background(Theme.background)
