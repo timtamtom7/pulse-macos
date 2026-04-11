@@ -12,6 +12,7 @@ struct PulseWidgetBundle: WidgetBundle {
 // MARK: - Timeline Entry
 
 struct PulseEntry: TimelineEntry {
+    let id: UUID
     let date: Date
     let cpuPercent: Int
     let memoryPercent: Int
@@ -21,7 +22,7 @@ struct PulseEntry: TimelineEntry {
 
 struct PulseProvider: TimelineProvider {
     func placeholder(in context: Context) -> PulseEntry {
-        PulseEntry(date: Date(), cpuPercent: 45, memoryPercent: 62, networkSpeed: "12 MB/s ↓", macName: "Mac")
+        PulseEntry(id: UUID(), date: Date(), cpuPercent: 45, memoryPercent: 62, networkSpeed: "12 MB/s ↓", macName: "Mac")
     }
     func getSnapshot(in context: Context, completion: @escaping (PulseEntry) -> Void) { completion(loadEntry()) }
     func getTimeline(in context: Context, completion: @escaping (Timeline<PulseEntry>) -> Void) {
@@ -32,6 +33,7 @@ struct PulseProvider: TimelineProvider {
     private func loadEntry() -> PulseEntry {
         let defaults = UserDefaults(suiteName: "group.com.pulse.macos") ?? .standard
         return PulseEntry(
+            id: UUID(),
             date: Date(),
             cpuPercent: defaults.integer(forKey: "widget_cpu"),
             memoryPercent: defaults.integer(forKey: "widget_memory"),

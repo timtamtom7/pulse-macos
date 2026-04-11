@@ -120,7 +120,7 @@ import Darwin
 final class ProcessMonitor {
     static let shared = ProcessMonitor()
 
-    private var previousCPUInfo: [Int32: (userTime: UInt64, systemTime: UInt64, timestamp: Date)] = [:]
+    private var processCPUInfo: [Int32: (userTime: UInt64, systemTime: UInt64, timestamp: Date)] = [:]
     private let infoLock = NSLock()
 
     private init() {}
@@ -186,18 +186,18 @@ final class ProcessMonitor {
         infoLock.lock()
         defer { infoLock.unlock() }
 
-        if let previous = previousCPUInfo[pid] {
+        if let previous = processCPUInfo[pid] {
             let timeDelta = Double(currentUserTime + currentSystemTime - previous.userTime - previous.systemTime)
             let realDelta = now.timeIntervalSince(previous.timestamp)
 
             if realDelta > 0 && timeDelta > 0 {
                 let cpuPercent = (timeDelta / 1_000_000_000.0) / realDelta * 100.0
-                previousCPUInfo[pid] = (currentUserTime, currentSystemTime, now)
+                processCPUInfo[pid] = (currentUserTime, currentSystemTime, now)
                 return min(cpuPercent, Double(ProcessInfo.processInfo.activeProcessorCount) * 100.0)
             }
         }
 
-        previousCPUInfo[pid] = (currentUserTime, currentSystemTime, now)
+        processCPUInfo[pid] = (currentUserTime, currentSystemTime, now)
         return 0
     }
 

@@ -122,7 +122,7 @@ final class AlertNotificationService {
         let content = UNMutableNotificationContent()
         content.title = title
         content.body = body
-        content.sound = .default
+        content.sound = .default // Respects macOS notification sound settings
         content.categoryIdentifier = "PULSE_ALERT"
 
         let request = UNNotificationRequest(

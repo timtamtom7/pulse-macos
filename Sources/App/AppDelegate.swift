@@ -9,13 +9,12 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     private var eventMonitor: Any?
 
     func applicationDidFinishLaunching(_ notification: Notification) {
-        PulseState.shared.configure(viewModel: viewModel)
-
         setupMenu()
         setupStatusItem()
         setupPopover()
         setupEventMonitor()
 
+        PulseState.shared.configure(viewModel: viewModel)
         SystemMonitor.shared.start()
 
         _ = SettingsStore.shared.getRecentSamples(hours: 24)

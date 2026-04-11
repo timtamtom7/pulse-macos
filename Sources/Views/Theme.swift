@@ -86,19 +86,19 @@ enum Theme {
 // MARK: - Glass Card Style
 struct GlassCardStyle: ViewModifier {
     let cornerRadius: CGFloat
+    @Environment(\.accessibilityReduceTransparency) var reduceTransparency
 
     func body(content: Content) -> some View {
         content
             .background(
                 RoundedRectangle(cornerRadius: cornerRadius)
-                    .fill(.ultraThinMaterial)
-                    .opacity(0.85)
+                    .fill(reduceTransparency ? Theme.surface : .ultraThinMaterial)
             )
             .background(
                 RoundedRectangle(cornerRadius: cornerRadius)
-                    .stroke(Theme.glassBorder, lineWidth: 0.5)
+                    .stroke(reduceTransparency ? Color.clear : Theme.glassBorder, lineWidth: 0.5)
             )
-            .shadow(color: Theme.glassShadow.opacity(0.25), radius: Theme.glassShadowRadius, x: 0, y: Theme.glassShadowY)
+            .shadow(color: Theme.glassShadow.opacity(reduceTransparency ? 0.1 : 0.25), radius: reduceTransparency ? Theme.glassShadowRadius / 2 : Theme.glassShadowRadius, x: 0, y: Theme.glassShadowY / 2)
     }
 }
 

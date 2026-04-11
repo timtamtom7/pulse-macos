@@ -39,7 +39,7 @@ struct HistoryView: View {
             }
             .pickerStyle(.segmented)
             .frame(width: 200)
-            .onChange(of: viewModel.historyHours) { _ in
+            .onChange(of: viewModel.historyHours) { oldValue, newValue in
                 viewModel.loadHistory()
             }
 
