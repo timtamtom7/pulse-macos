@@ -123,6 +123,7 @@ final class AlertNotificationService {
         content.title = title
         content.body = body
         content.sound = .default
+        content.categoryIdentifier = "PULSE_ALERT"
 
         let request = UNNotificationRequest(
             identifier: identifier,
@@ -143,6 +144,11 @@ final class AlertNotificationService {
                 print("Notification auth error: \(error)")
             }
         }
+        // Register notification categories for actionable notifications
+        let openAction = UNNotificationAction(identifier: "OPEN_PULSE", title: "Open Pulse", options: .foreground)
+        let dismissAction = UNNotificationAction(identifier: "DISMISS", title: "Dismiss", options: .destructive)
+        let alertCategory = UNNotificationCategory(identifier: "PULSE_ALERT", actions: [openAction, dismissAction], intentIdentifiers: [], options: [])
+        UNUserNotificationCenter.current().setNotificationCategories([alertCategory])
     }
 }
 

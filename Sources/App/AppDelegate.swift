@@ -25,6 +25,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationWillTerminate(_ notification: Notification) {
         SystemMonitor.shared.stop()
+        viewModel.stopMonitoring()
         if let monitor = eventMonitor {
             NSEvent.removeMonitor(monitor)
         }

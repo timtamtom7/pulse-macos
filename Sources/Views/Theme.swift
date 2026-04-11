@@ -72,6 +72,12 @@ enum Theme {
     static let glassShadowRadius: CGFloat = 20
     static let glassShadowY: CGFloat = 8
 
+    // MARK: - Layout
+    static let tabViewWidth: CGFloat = 380
+    static let tabViewHeight: CGFloat = 420
+    static let sheetWidth: CGFloat = 350
+    static let cpuRingSize: CGFloat = 64
+
     // MARK: - Animation
     static let springAnimation = Animation.spring(response: 0.3, dampingFraction: 0.7)
     static let easeInOutAnimation = Animation.easeInOut(duration: 0.2)

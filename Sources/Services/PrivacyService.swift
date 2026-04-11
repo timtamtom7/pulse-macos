@@ -32,6 +32,10 @@ public final class PulsePrivacyService {
     
     public func wipeAllData() {
         if let bundleId = Bundle.main.bundleIdentifier { UserDefaults.standard.removePersistentDomain(forName: bundleId) }
+        // Also wipe the SQLite database
+        let appSupport = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!
+        let pulseDir = appSupport.appendingPathComponent("Pulse", isDirectory: true)
+        try? FileManager.default.removeItem(at: pulseDir)
     }
     
     public static var privacyManifest: [String: Any] {

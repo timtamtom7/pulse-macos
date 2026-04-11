@@ -3,6 +3,8 @@ import Charts
 
 struct HistoryView: View {
     @ObservedObject var viewModel: PulseViewModel
+    @Environment(\.accessibilityReduceMotion) var reduceMotion
+    @ScaledMetric var chartAxisFontSize: CGFloat = 11
 
     var body: some View {
         VStack(spacing: 0) {
@@ -53,6 +55,10 @@ struct HistoryView: View {
 
     // MARK: - CPU History Chart
 
+    private var chartInterpolation: InterpolationMethod {
+        reduceMotion ? .line : .catmullRom
+    }
+
     private var cpuHistoryChart: some View {
         VStack(alignment: .leading, spacing: Theme.paddingSmall) {
             Text("CPU History")
@@ -69,21 +75,21 @@ struct HistoryView: View {
                             y: .value("CPU", sample.cpuTotal)
                         )
                         .foregroundStyle(Theme.cpuSystem.opacity(0.4))
-                        .interpolationMethod(.catmullRom)
+                        .interpolationMethod(chartInterpolation)
 
                         LineMark(
                             x: .value("Time", sample.timestamp),
                             y: .value("User", sample.cpuUser)
                         )
                         .foregroundStyle(Theme.cpuUser)
-                        .interpolationMethod(.catmullRom)
+                        .interpolationMethod(chartInterpolation)
 
                         LineMark(
                             x: .value("Time", sample.timestamp),
                             y: .value("System", sample.cpuSystem)
                         )
                         .foregroundStyle(Theme.cpuSystem)
-                        .interpolationMethod(.catmullRom)
+                        .interpolationMethod(chartInterpolation)
                     }
                 }
                 .chartYScale(domain: 0...100)
@@ -92,7 +98,7 @@ struct HistoryView: View {
                         AxisValueLabel {
                             if let v = value.as(Double.self) {
                                 Text("\(Int(v))%")
-                                    .font(.system(size: Theme.fontSizeChartAxis))
+                                    .font(.system(size: chartAxisFontSize))
                                     .foregroundColor(Theme.textSecondary)
                             }
                         }
@@ -101,7 +107,7 @@ struct HistoryView: View {
                 .chartXAxis {
                     AxisMarks(values: .automatic(desiredCount: 4)) { _ in
                         AxisValueLabel()
-                            .font(.system(size: Theme.fontSizeChartAxis))
+                            .font(.system(size: chartAxisFontSize))
                     }
                 }
                 .frame(height: 120)
@@ -138,7 +144,7 @@ struct HistoryView: View {
                         AxisValueLabel {
                             if let v = value.as(Double.self) {
                                 Text("\(Int(v))%")
-                                    .font(.system(size: Theme.fontSizeChartAxis))
+                                    .font(.system(size: chartAxisFontSize))
                                     .foregroundColor(Theme.textSecondary)
                             }
                         }
@@ -147,7 +153,7 @@ struct HistoryView: View {
                 .chartXAxis {
                     AxisMarks(values: .automatic(desiredCount: 4)) { _ in
                         AxisValueLabel()
-                            .font(.system(size: Theme.fontSizeChartAxis))
+                            .font(.system(size: chartAxisFontSize))
                     }
                 }
                 .frame(height: 100)
@@ -175,22 +181,23 @@ struct HistoryView: View {
                             y: .value("In", sample.networkInDelta)
                         )
                         .foregroundStyle(Theme.networkDown)
-                        .interpolationMethod(.catmullRom)
+                        .interpolationMethod(chartInterpolation)
 
                         LineMark(
                             x: .value("Time", sample.timestamp),
                             y: .value("Out", sample.networkOutDelta)
                         )
                         .foregroundStyle(Theme.networkUp)
-                        .interpolationMethod(.catmullRom)
+                        .interpolationMethod(chartInterpolation)
                     }
                 }
+                .chartLegend(.hidden)
                 .chartYAxis {
                     AxisMarks(position: .leading) { value in
                         AxisValueLabel {
                             if let v = value.as(Double.self) {
                                 Text(FormatUtils.formatSpeed(bytesPerSecond: v))
-                                    .font(.system(size: Theme.fontSizeChartAxis))
+                                    .font(.system(size: chartAxisFontSize))
                                     .foregroundColor(Theme.textSecondary)
                             }
                         }
@@ -199,7 +206,7 @@ struct HistoryView: View {
                 .chartXAxis {
                     AxisMarks(values: .automatic(desiredCount: 4)) { _ in
                         AxisValueLabel()
-                            .font(.system(size: Theme.fontSizeChartAxis))
+                            .font(.system(size: chartAxisFontSize))
                     }
                 }
                 .frame(height: 100)

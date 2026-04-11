@@ -46,6 +46,13 @@ final class PulseViewModel: ObservableObject {
         }
     }
 
+    func stopMonitoring() {
+        sampleTimer?.invalidate()
+        sampleTimer = nil
+        processTimer?.invalidate()
+        processTimer = nil
+    }
+
     func refreshProcesses() {
         topProcesses = ProcessMonitor.shared.getTopProcesses(limit: 10)
     }

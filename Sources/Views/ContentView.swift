@@ -10,50 +10,58 @@ struct ContentView: View {
                     Label("Overview", systemImage: "gauge")
                 }
                 .tag(0)
+                .accessibilityLabel("Overview tab")
 
             NetworkTabView(viewModel: viewModel)
                 .tabItem {
                     Label("Network", systemImage: "network")
                 }
                 .tag(1)
+                .accessibilityLabel("Network tab")
 
             HistoryView(viewModel: viewModel)
                 .tabItem {
                     Label("History", systemImage: "chart.line.uptrend.xyaxis")
                 }
                 .tag(2)
+                .accessibilityLabel("History tab")
 
             ProcessListView(viewModel: viewModel)
                 .tabItem {
                     Label("Processes", systemImage: "list.bullet")
                 }
                 .tag(3)
+                .accessibilityLabel("Processes tab")
 
             DashboardView()
                 .tabItem {
                     Label("Dashboard", systemImage: "rectangle.grid.1x2")
                 }
                 .tag(4)
+                .accessibilityLabel("Dashboard tab")
 
             HistoricalReportsView()
                 .tabItem {
                     Label("Reports", systemImage: "doc.text")
                 }
                 .tag(5)
+                .accessibilityLabel("Reports tab")
 
             WidgetGalleryView(viewModel: viewModel)
                 .tabItem {
                     Label("Widgets", systemImage: "square.grid.2x2")
                 }
                 .tag(6)
+                .accessibilityLabel("Widgets tab")
 
             SettingsView(viewModel: viewModel)
                 .tabItem {
                     Label("Settings", systemImage: "gearshape")
                 }
                 .tag(7)
+                .accessibilityLabel("Settings tab")
         }
-        .frame(width: 380, height: 420)
+        .frame(width: Theme.tabViewWidth, height: Theme.tabViewHeight)
         .background(Theme.background)
         .accessibilityElement(children: .contain)
     }
@@ -210,7 +218,7 @@ struct OverviewTabView: View {
                 ZStack {
                     Circle()
                         .stroke(Theme.cpuIdle, lineWidth: 6)
-                        .frame(width: 64, height: 64)
+                        .frame(width: Theme.cpuRingSize, height: Theme.cpuRingSize)
 
                     Circle()
                         .trim(from: 0, to: CGFloat(viewModel.stats.cpuTotal / 100))
@@ -221,7 +229,7 @@ struct OverviewTabView: View {
                             ),
                             style: StrokeStyle(lineWidth: 6, lineCap: .round)
                         )
-                        .frame(width: 64, height: 64)
+                        .frame(width: Theme.cpuRingSize, height: Theme.cpuRingSize)
                         .rotationEffect(.degrees(-90))
 
                     Text(String(format: "%.0f%%", viewModel.stats.cpuTotal))

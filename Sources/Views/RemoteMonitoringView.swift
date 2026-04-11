@@ -164,7 +164,7 @@ struct DashboardView: View {
             }
         }
         .padding(Theme.paddingMedium)
-        .frame(width: 350)
+        .frame(width: Theme.sheetWidth)
     }
 
     private func severityColor(_ severity: AlertSeverity) -> Color {

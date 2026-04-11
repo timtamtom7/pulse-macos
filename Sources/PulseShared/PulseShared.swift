@@ -20,9 +20,17 @@ public final class WidgetDataProvider {
     public static let shared = WidgetDataProvider()
 
     private let userDefaults: UserDefaults?
+    private let useAppGroup: Bool
 
     private init() {
-        userDefaults = UserDefaults(suiteName: PulseConstants.appGroupIdentifier)
+        // Try app group first; fall back to standard UserDefaults if unavailable
+        if let groupDefaults = UserDefaults(suiteName: PulseConstants.appGroupIdentifier) {
+            self.userDefaults = groupDefaults
+            self.useAppGroup = true
+        } else {
+            self.userDefaults = .standard
+            self.useAppGroup = false
+        }
     }
 
     public func updateWidgetData(cpuPercent: Int, memoryPercent: Int, networkSpeed: String, macName: String) {
