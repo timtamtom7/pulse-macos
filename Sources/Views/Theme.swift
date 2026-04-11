@@ -26,10 +26,10 @@ enum Theme {
     static let networkUp = Color(hex: "4ADE80")
     static let networkDown = Color(hex: "60A5FA")
 
-    // Alert colors
-    static let alertInfo = Color.blue
-    static let alertWarning = Color.orange
-    static let alertCritical = Color.red
+    // Alert colors (using custom palette for consistency)
+    static let alertInfo = Color(hex: "60A5FA")      // Blue
+    static let alertWarning = Color(hex: "FBBF24")    // Amber
+    static let alertCritical = Color(hex: "F87171")   // Red (matches statusRed)
 
     // MARK: - Usage Color
     static func usageColor(for percentage: Double) -> Color {

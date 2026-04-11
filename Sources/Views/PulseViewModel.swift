@@ -60,10 +60,14 @@ final class PulseViewModel: ObservableObject {
     func loadHistory() {
         let recent = SettingsStore.shared.getRecentSamples(hours: historyHours)
         samples = recent
-        hourlySamples = aggregateHourly(samples: recent)
+        // Note: aggregateHourlyByHourOfDay groups by hour 0-23 across ALL days,
+        // showing average behavior at each hour of day (not chronological buckets)
+        hourlySamples = aggregateHourlyByHourOfDay(samples: recent)
     }
 
-    private func aggregateHourly(samples: [Sample]) -> [HourlySample] {
+    /// Groups samples by hour-of-day (0-23), averaging across all days in the range.
+    /// This shows typical CPU/RAM patterns per hour, useful for identifying busy periods.
+    private func aggregateHourlyByHourOfDay(samples: [Sample]) -> [HourlySample] {
         let calendar = Calendar.current
         var hourly: [Int: [Sample]] = [:]
 

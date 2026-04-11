@@ -38,7 +38,8 @@ final class RemoteMonitoringService: ObservableObject {
         browser = NWBrowser(for: .bonjour(type: "_pulse._tcp", domain: nil), using: params)
 
         browser?.stateUpdateHandler = { [weak self] state in
-            Task { @MainActor in
+            // Browser callbacks fire on background queue; Task hops to class's MainActor
+            Task {
                 if case .failed = state {
                     self?.isDiscovering = false
                 }
@@ -46,7 +47,8 @@ final class RemoteMonitoringService: ObservableObject {
         }
 
         browser?.browseResultsChangedHandler = { [weak self] results, _ in
-            Task { @MainActor in
+            // Browser callbacks fire on background queue; Task hops to class's MainActor
+            Task {
                 for result in results {
                     if case .service(let name, _, _, _) = result.endpoint {
                         self?.addDiscoveredMac(name: name)
