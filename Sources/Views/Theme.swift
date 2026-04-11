@@ -92,7 +92,7 @@ struct GlassCardStyle: ViewModifier {
         content
             .background(
                 RoundedRectangle(cornerRadius: cornerRadius)
-                    .fill(reduceTransparency ? Theme.surface : .ultraThinMaterial)
+                    .fill(reduceTransparency ? AnyShapeStyle(Theme.surface) : AnyShapeStyle(.ultraThinMaterial))
             )
             .background(
                 RoundedRectangle(cornerRadius: cornerRadius)

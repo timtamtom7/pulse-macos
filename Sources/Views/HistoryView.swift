@@ -39,7 +39,7 @@ struct HistoryView: View {
             }
             .pickerStyle(.segmented)
             .frame(width: 200)
-            .onChange(of: viewModel.historyHours) { oldValue, newValue in
+            .onChange(of: viewModel.historyHours) { _ in
                 viewModel.loadHistory()
             }
 
@@ -56,7 +56,7 @@ struct HistoryView: View {
     // MARK: - CPU History Chart
 
     private var chartInterpolation: InterpolationMethod {
-        reduceMotion ? .line : .catmullRom
+        reduceMotion ? .linear : .catmullRom
     }
 
     private var cpuHistoryChart: some View {
