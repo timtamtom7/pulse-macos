@@ -6,35 +6,7 @@ struct HistoryView: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            // Header
-            HStack {
-                Text("History")
-                    .font(.system(size: 14, weight: .semibold))
-                    .foregroundColor(Theme.textPrimary)
-
-                Spacer()
-
-                // Time range picker
-                Picker("", selection: $viewModel.historyHours) {
-                    Text("1h").tag(1)
-                    Text("6h").tag(6)
-                    Text("12h").tag(12)
-                    Text("24h").tag(24)
-                }
-                .pickerStyle(.segmented)
-                .frame(width: 200)
-                .onChange(of: viewModel.historyHours) { _ in
-                    viewModel.loadHistory()
-                }
-
-                Button(action: { viewModel.loadHistory() }) {
-                    Image(systemName: "arrow.clockwise")
-                        .font(.system(size: 12))
-                        .foregroundColor(Theme.textSecondary)
-                }
-                .buttonStyle(.plain)
-            }
-            .padding(Theme.paddingMedium)
+            headerView
 
             Divider()
 
@@ -49,12 +21,42 @@ struct HistoryView: View {
         }
     }
 
+    private var headerView: some View {
+        HStack {
+            Text("History")
+                .font(.system(size: Theme.fontSizeHeadline, weight: .semibold))
+                .foregroundColor(Theme.textPrimary)
+
+            Spacer()
+
+            Picker("", selection: $viewModel.historyHours) {
+                Text("1h").tag(1)
+                Text("6h").tag(6)
+                Text("12h").tag(12)
+                Text("24h").tag(24)
+            }
+            .pickerStyle(.segmented)
+            .frame(width: 200)
+            .onChange(of: viewModel.historyHours) { _ in
+                viewModel.loadHistory()
+            }
+
+            Button(action: { viewModel.loadHistory() }) {
+                Image(systemName: "arrow.clockwise")
+                    .font(.system(size: Theme.fontSizeIcon))
+                    .foregroundColor(Theme.textSecondary)
+            }
+            .buttonStyle(.plain)
+        }
+        .padding(Theme.paddingMedium)
+    }
+
     // MARK: - CPU History Chart
 
     private var cpuHistoryChart: some View {
         VStack(alignment: .leading, spacing: Theme.paddingSmall) {
             Text("CPU History")
-                .font(.system(size: 12, weight: .semibold))
+                .font(.system(size: Theme.fontSizeBody, weight: .semibold))
                 .foregroundColor(Theme.textSecondary)
 
             if viewModel.samples.isEmpty {
@@ -90,7 +92,7 @@ struct HistoryView: View {
                         AxisValueLabel {
                             if let v = value.as(Double.self) {
                                 Text("\(Int(v))%")
-                                    .font(.system(size: 9))
+                                    .font(.system(size: Theme.fontSizeChartAxis))
                                     .foregroundColor(Theme.textSecondary)
                             }
                         }
@@ -99,16 +101,14 @@ struct HistoryView: View {
                 .chartXAxis {
                     AxisMarks(values: .automatic(desiredCount: 4)) { _ in
                         AxisValueLabel()
-                            .font(.system(size: 9))
-                            
+                            .font(.system(size: Theme.fontSizeChartAxis))
                     }
                 }
                 .frame(height: 120)
             }
         }
         .padding(Theme.paddingMedium)
-        .background(Theme.surface)
-        .cornerRadius(Theme.cornerRadius)
+        .glassCard(cornerRadius: Theme.cornerRadius)
     }
 
     // MARK: - RAM History Chart
@@ -116,7 +116,7 @@ struct HistoryView: View {
     private var ramHistoryChart: some View {
         VStack(alignment: .leading, spacing: Theme.paddingSmall) {
             Text("Memory History")
-                .font(.system(size: 12, weight: .semibold))
+                .font(.system(size: Theme.fontSizeBody, weight: .semibold))
                 .foregroundColor(Theme.textSecondary)
 
             if viewModel.samples.isEmpty {
@@ -138,7 +138,7 @@ struct HistoryView: View {
                         AxisValueLabel {
                             if let v = value.as(Double.self) {
                                 Text("\(Int(v))%")
-                                    .font(.system(size: 9))
+                                    .font(.system(size: Theme.fontSizeChartAxis))
                                     .foregroundColor(Theme.textSecondary)
                             }
                         }
@@ -147,16 +147,14 @@ struct HistoryView: View {
                 .chartXAxis {
                     AxisMarks(values: .automatic(desiredCount: 4)) { _ in
                         AxisValueLabel()
-                            .font(.system(size: 9))
-                            
+                            .font(.system(size: Theme.fontSizeChartAxis))
                     }
                 }
                 .frame(height: 100)
             }
         }
         .padding(Theme.paddingMedium)
-        .background(Theme.surface)
-        .cornerRadius(Theme.cornerRadius)
+        .glassCard(cornerRadius: Theme.cornerRadius)
     }
 
     // MARK: - Network History Chart
@@ -164,7 +162,7 @@ struct HistoryView: View {
     private var networkHistoryChart: some View {
         VStack(alignment: .leading, spacing: Theme.paddingSmall) {
             Text("Network History")
-                .font(.system(size: 12, weight: .semibold))
+                .font(.system(size: Theme.fontSizeBody, weight: .semibold))
                 .foregroundColor(Theme.textSecondary)
 
             if viewModel.samples.isEmpty {
@@ -191,8 +189,8 @@ struct HistoryView: View {
                     AxisMarks(position: .leading) { value in
                         AxisValueLabel {
                             if let v = value.as(Double.self) {
-                                Text(formatSpeed(v))
-                                    .font(.system(size: 9))
+                                Text(FormatUtils.formatSpeed(bytesPerSecond: v))
+                                    .font(.system(size: Theme.fontSizeChartAxis))
                                     .foregroundColor(Theme.textSecondary)
                             }
                         }
@@ -201,40 +199,26 @@ struct HistoryView: View {
                 .chartXAxis {
                     AxisMarks(values: .automatic(desiredCount: 4)) { _ in
                         AxisValueLabel()
-                            .font(.system(size: 9))
-                            
+                            .font(.system(size: Theme.fontSizeChartAxis))
                     }
                 }
                 .frame(height: 100)
             }
         }
         .padding(Theme.paddingMedium)
-        .background(Theme.surface)
-        .cornerRadius(Theme.cornerRadius)
+        .glassCard(cornerRadius: Theme.cornerRadius)
     }
 
     private var emptyChartState: some View {
         VStack {
             Image(systemName: "chart.line.uptrend.xyaxis")
-                .font(.system(size: 24))
+                .font(.system(size: Theme.fontSizeLarge))
                 .foregroundColor(Theme.textSecondary)
             Text("Not enough data yet")
-                .font(.system(size: 12))
+                .font(.system(size: Theme.fontSizeBody))
                 .foregroundColor(Theme.textSecondary)
         }
         .frame(maxWidth: .infinity)
         .frame(height: 100)
-    }
-
-    private func formatSpeed(_ bytesPerSec: Double) -> String {
-        if bytesPerSec >= 1_000_000_000 {
-            return String(format: "%.1f GB/s", bytesPerSec / 1_000_000_000)
-        } else if bytesPerSec >= 1_000_000 {
-            return String(format: "%.1f MB/s", bytesPerSec / 1_000_000)
-        } else if bytesPerSec >= 1_000 {
-            return String(format: "%.1f KB/s", bytesPerSec / 1_000)
-        } else {
-            return String(format: "%.0f B/s", bytesPerSec)
-        }
     }
 }

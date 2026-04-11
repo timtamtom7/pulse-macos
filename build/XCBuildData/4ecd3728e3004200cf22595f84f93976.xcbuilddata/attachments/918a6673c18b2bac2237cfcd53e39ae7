@@ -1,0 +1,4 @@
+framework module Pulse {
+  header "Pulse-Swift.h"
+  requires objc
+}

@@ -13,8 +13,17 @@ final class RemoteMonitoringService: ObservableObject {
 
     private let dashboardKey = "pulse_dashboard"
     private var browser: NWBrowser?
+    private let session: URLSession
+
+    static let defaultPort = 9876
+    static let requestTimeout: TimeInterval = 10
+    static let discoveryTimeout: TimeInterval = 5
 
     private init() {
+        let config = URLSessionConfiguration.default
+        config.timeoutIntervalForRequest = Self.requestTimeout
+        config.timeoutIntervalForResource = Self.requestTimeout
+        self.session = URLSession(configuration: config)
         loadDashboard()
     }
 
@@ -49,8 +58,7 @@ final class RemoteMonitoringService: ObservableObject {
 
         browser?.start(queue: .main)
 
-        // Auto-discover local network Macs after timeout
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5) { [weak self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + Self.discoveryTimeout) { [weak self] in
             self?.browser?.cancel()
             self?.isDiscovering = false
         }
@@ -63,7 +71,7 @@ final class RemoteMonitoringService: ObservableObject {
         let mac = RemoteMac(
             name: name,
             hostname: "\(name).local",
-            ipAddress: "192.168.1.x",
+            ipAddress: "",
             isOnline: false
         )
         remoteMacs.append(mac)
@@ -71,7 +79,7 @@ final class RemoteMonitoringService: ObservableObject {
 
     // MARK: - Remote Mac Management
 
-    func addMac(name: String, hostname: String, port: Int = 9876) -> RemoteMac {
+    func addMac(name: String, hostname: String, port: Int = defaultPort) -> RemoteMac {
         let mac = RemoteMac(name: name, hostname: hostname, ipAddress: "", port: port)
         remoteMacs.append(mac)
         saveDashboard()
@@ -86,23 +94,20 @@ final class RemoteMonitoringService: ObservableObject {
     func refreshMacStatus(_ id: UUID) async {
         guard let index = remoteMacs.firstIndex(where: { $0.id == id }) else { return }
 
-        // In production, would make HTTP request to remote Mac
-        // For now, simulate
         var mac = remoteMacs[index]
-        mac.isOnline = Bool.random()
-        mac.lastSeen = Date()
-        if mac.isOnline {
-            mac.systemStats = SystemStatsSnapshot(
-                timestamp: Date(),
-                cpuUsage: Double.random(in: 0...100),
-                memoryUsage: Double.random(in: 0...100),
-                diskUsage: Double.random(in: 0...100),
-                temperature: Double.random(in: 30...80),
-                networkUp: Double.random(in: 0...100),
-                networkDown: Double.random(in: 0...100),
-                batteryPercent: Int.random(in: 0...100)
-            )
+
+        do {
+            let stats = try await fetchRemoteStats(hostname: mac.hostname, port: mac.port, apiKey: mac.apiKey)
+            mac.isOnline = true
+            mac.lastSeen = Date()
+            mac.systemStats = stats
+            mac.ipAddress = resolveIPAddress(from: mac.hostname)
+        } catch {
+            mac.isOnline = false
+            mac.lastSeen = Date()
+            mac.systemStats = nil
         }
+
         remoteMacs[index] = mac
         updateDashboard()
     }
@@ -111,6 +116,57 @@ final class RemoteMonitoringService: ObservableObject {
         for mac in remoteMacs {
             await refreshMacStatus(mac.id)
         }
+    }
+
+    // MARK: - Network Requests
+
+    private func fetchRemoteStats(hostname: String, port: Int, apiKey: String) async throws -> SystemStatsSnapshot {
+        guard let url = URL(string: "http://\(hostname):\(port)/api/stats") else {
+            throw PulseError.networkRequestFailed("Invalid URL")
+        }
+
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.setValue("Bearer \(apiKey)", forHTTPHeaderField: "Authorization")
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
+
+        let (data, response) = try await session.data(for: request)
+
+        guard let httpResponse = response as? HTTPURLResponse else {
+            throw PulseError.networkRequestFailed("Invalid response")
+        }
+
+        guard httpResponse.statusCode == 200 else {
+            if httpResponse.statusCode == 401 {
+                throw PulseError.unauthorized
+            }
+            throw PulseError.networkRequestFailed("HTTP \(httpResponse.statusCode)")
+        }
+
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
+        return try decoder.decode(SystemStatsSnapshot.self, from: data)
+    }
+
+    private func resolveIPAddress(from hostname: String) -> String {
+        let host = CFHostCreateWithName(nil, hostname as CFString).takeRetainedValue()
+        CFHostStartInfoResolution(host, .addresses, nil)
+
+        var success: DarwinBoolean = false
+        guard let addresses = CFHostGetAddressing(host, &success)?.takeUnretainedValue() as? [Data],
+              success.boolValue,
+              let addressData = addresses.first else {
+            return ""
+        }
+
+        var hostname = [CChar](repeating: 0, count: Int(NI_MAXHOST))
+        addressData.withUnsafeBytes { ptr in
+            let sockaddr = ptr.bindMemory(to: sockaddr.self).baseAddress!
+            getnameinfo(sockaddr, socklen_t(addressData.count),
+                       &hostname, socklen_t(hostname.count),
+                       nil, 0, NI_NUMERICHOST)
+        }
+        return String(cString: hostname)
     }
 
     // MARK: - Dashboard

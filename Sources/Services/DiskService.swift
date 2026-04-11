@@ -6,17 +6,7 @@ final class DiskService {
     private init() {}
 
     func formatBytes(_ bytes: UInt64) -> String {
-        let b = Double(bytes)
-
-        if b >= 1_000_000_000_000 {
-            return String(format: "%.1f TB", b / 1_000_000_000_000)
-        } else if b >= 1_000_000_000 {
-            return String(format: "%.0f GB", b / 1_000_000_000)
-        } else if b >= 1_000_000 {
-            return String(format: "%.0f MB", b / 1_000_000)
-        } else {
-            return String(format: "%.0f KB", b / 1_000)
-        }
+        FormatUtils.formatBytes(bytes, precision: 0)
     }
 
     func getDiskInfo() -> (used: UInt64, total: UInt64) {

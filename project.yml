@@ -25,6 +25,18 @@ packages:
     from: "0.14.1"
 
 targets:
+  PulseShared:
+    type: framework
+    platform: macOS
+    sources:
+      - Sources/PulseShared
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.pulse.shared
+        DEFINES_MODULE: YES
+        SKIP_INSTALL: YES
+        CODE_SIGN_IDENTITY: "-"
+
   Pulse:
     type: application
     platform: macOS
@@ -34,8 +46,89 @@ targets:
     dependencies:
       - package: SQLite
         product: SQLite
+      - target: PulseShared
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.pulse.app
         LD_RUNPATH_SEARCH_PATHS: "$(inherited) @executable_path/../Frameworks"
         COMBINE_HIDPI_IMAGES: YES
+
+  PulseWidgetExtension:
+    type: app-extension
+    platform: macOS
+    sources:
+      - PulseWidget
+    dependencies:
+      - target: PulseShared
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.pulse.app.widget
+        PRODUCT_NAME: PulseWidget
+        PRODUCT_MODULE_NAME: PulseWidget
+        LD_RUNPATH_SEARCH_PATHS: "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks"
+        SKIP_INSTALL: YES
+        CODE_SIGN_ENTITLEMENTS: PulseWidget/PulseWidget.entitlements
+
+  PulseTests:
+    type: bundle.unit-test
+    platform: macOS
+    sources:
+      - Tests/PulseTests
+    dependencies:
+      - target: Pulse
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.pulse.app.tests
+        TEST_HOST: "$(BUILT_PRODUCTS_DIR)/Pulse.app/Contents/MacOS/Pulse"
+        BUNDLE_LOADER: "$(TEST_HOST)"
+
+schemes:
+  Pulse:
+    build:
+      targets:
+        Pulse: all
+        PulseShared: all
+    run:
+      config: Debug
+    test:
+      config: Debug
+      gatherCoverageData: true
+    profile:
+      config: Release
+    analyze:
+      config: Debug
+    archive:
+      config: Release
+
+  PulseWidgetExtension:
+    build:
+      targets:
+        PulseWidgetExtension: all
+        PulseShared: all
+    run:
+      config: Debug
+    test:
+      config: Debug
+    profile:
+      config: Release
+    analyze:
+      config: Debug
+    archive:
+      config: Release
+
+  PulseTests:
+    build:
+      targets:
+        PulseTests: all
+        Pulse: all
+        PulseShared: all
+    run:
+      config: Debug
+    test:
+      config: Debug
+    profile:
+      config: Release
+    analyze:
+      config: Debug
+    archive:
+      config: Release

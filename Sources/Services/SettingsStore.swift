@@ -6,7 +6,6 @@ final class SettingsStore {
 
     private var db: Connection?
 
-    // Table & Columns
     private let samples = Table("samples")
     private let id = Expression<Int64>("id")
     private let timestamp = Expression<Date>("timestamp")
@@ -20,8 +19,9 @@ final class SettingsStore {
     private let networkInDelta = Expression<Double>("network_in_delta")
     private let networkOutDelta = Expression<Double>("network_out_delta")
 
-    private let retentionDays = 7
-    private let sampleIntervalSeconds: Double = 60
+    static let retentionDays = 7
+    static let sampleIntervalSeconds: Double = 60
+    static let statsCollectionInterval: TimeInterval = 2.0
 
     private var lastSampleTime: Date?
 
@@ -37,6 +37,8 @@ final class SettingsStore {
             try FileManager.default.createDirectory(at: pulseDir, withIntermediateDirectories: true)
             let dbPath = pulseDir.appendingPathComponent("pulse.db").path
             db = try Connection(dbPath)
+            // Enable WAL mode for concurrent access between SettingsStore and ProcessHistoryManager
+            try db?.execute("PRAGMA journal_mode=WAL")
             try createTables()
             try purgeOldSamples()
         } catch {
@@ -61,20 +63,25 @@ final class SettingsStore {
     }
 
     func recordSample(_ stats: SystemStats) {
+        guard let db = db else {
+            print("Database not available")
+            return
+        }
+
         let now = Date()
 
-        if let last = lastSampleTime, now.timeIntervalSince(last) < sampleIntervalSeconds {
+        if let last = lastSampleTime, now.timeIntervalSince(last) < Self.sampleIntervalSeconds {
             return
         }
 
         lastSampleTime = now
 
-        let intervalSeconds: Double = 2.0
+        let intervalSeconds = Self.statsCollectionInterval
         let netInPerSec = stats.networkInDelta > 0 ? Double(stats.networkInDelta) / intervalSeconds : 0
         let netOutPerSec = stats.networkOutDelta > 0 ? Double(stats.networkOutDelta) / intervalSeconds : 0
 
         do {
-            try db?.run(samples.insert(
+            try db.run(samples.insert(
                 timestamp <- now,
                 cpuUser <- stats.cpuUser,
                 cpuSystem <- stats.cpuSystem,
@@ -92,7 +99,10 @@ final class SettingsStore {
     }
 
     func getRecentSamples(hours: Int = 24) -> [Sample] {
-        guard let db = db else { return [] }
+        guard let db = db else {
+            print("Database not available")
+            return []
+        }
 
         let cutoff = Date().addingTimeInterval(-Double(hours * 3600))
         var result: [Sample] = []
@@ -122,7 +132,8 @@ final class SettingsStore {
     }
 
     private func purgeOldSamples() throws {
-        let cutoff = Date().addingTimeInterval(-Double(retentionDays * 24 * 3600))
-        try db?.run(samples.filter(timestamp < cutoff).delete())
+        guard let db = db else { return }
+        let cutoff = Date().addingTimeInterval(-Double(Self.retentionDays * 24 * 3600))
+        try db.run(samples.filter(timestamp < cutoff).delete())
     }
 }

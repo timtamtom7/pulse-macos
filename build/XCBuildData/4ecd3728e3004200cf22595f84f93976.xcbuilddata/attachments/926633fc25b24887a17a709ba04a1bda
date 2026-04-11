@@ -1,0 +1,39 @@
+{
+  "" : {
+    "diagnostics" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/PulseTests.build/Objects-normal/arm64/PulseTests-primary.dia",
+    "emit-module-dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/PulseTests.build/Objects-normal/arm64/PulseTests-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/PulseTests.build/Objects-normal/arm64/PulseTests-primary-emit-module.dia",
+    "pch" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/PulseTests.build/Objects-normal/arm64/PulseTests-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/PulseTests.build/Objects-normal/arm64/PulseTests-primary.swiftdeps"
+  },
+  "/Users/mauriello/Dev/pulse-macos/Tests/PulseTests/AlertNotificationServiceTests.swift" : {
+    "const-values" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/PulseTests.build/Objects-normal/arm64/AlertNotificationServiceTests.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/PulseTests.build/Objects-normal/arm64/AlertNotificationServiceTests.d",
+    "diagnostics" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/PulseTests.build/Objects-normal/arm64/AlertNotificationServiceTests.dia",
+    "index-unit-output-path" : "/Pulse.build/Debug/PulseTests.build/Objects-normal/arm64/AlertNotificationServiceTests.o",
+    "llvm-bc" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/PulseTests.build/Objects-normal/arm64/AlertNotificationServiceTests.bc",
+    "object" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/PulseTests.build/Objects-normal/arm64/AlertNotificationServiceTests.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/PulseTests.build/Objects-normal/arm64/AlertNotificationServiceTests.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/PulseTests.build/Objects-normal/arm64/AlertNotificationServiceTests~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/pulse-macos/Tests/PulseTests/FormatUtilsTests.swift" : {
+    "const-values" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/PulseTests.build/Objects-normal/arm64/FormatUtilsTests.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/PulseTests.build/Objects-normal/arm64/FormatUtilsTests.d",
+    "diagnostics" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/PulseTests.build/Objects-normal/arm64/FormatUtilsTests.dia",
+    "index-unit-output-path" : "/Pulse.build/Debug/PulseTests.build/Objects-normal/arm64/FormatUtilsTests.o",
+    "llvm-bc" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/PulseTests.build/Objects-normal/arm64/FormatUtilsTests.bc",
+    "object" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/PulseTests.build/Objects-normal/arm64/FormatUtilsTests.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/PulseTests.build/Objects-normal/arm64/FormatUtilsTests.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/PulseTests.build/Objects-normal/arm64/FormatUtilsTests~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/pulse-macos/Tests/PulseTests/SystemStatsTests.swift" : {
+    "const-values" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/PulseTests.build/Objects-normal/arm64/SystemStatsTests.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/PulseTests.build/Objects-normal/arm64/SystemStatsTests.d",
+    "diagnostics" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/PulseTests.build/Objects-normal/arm64/SystemStatsTests.dia",
+    "index-unit-output-path" : "/Pulse.build/Debug/PulseTests.build/Objects-normal/arm64/SystemStatsTests.o",
+    "llvm-bc" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/PulseTests.build/Objects-normal/arm64/SystemStatsTests.bc",
+    "object" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/PulseTests.build/Objects-normal/arm64/SystemStatsTests.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/PulseTests.build/Objects-normal/arm64/SystemStatsTests.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/PulseTests.build/Objects-normal/arm64/SystemStatsTests~partial.swiftmodule"
+  }
+}

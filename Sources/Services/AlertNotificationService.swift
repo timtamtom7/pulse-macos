@@ -6,29 +6,38 @@ final class AlertNotificationService {
 
     private var lastCPUNotification: Date?
     private var lastRAMNotification: Date?
-    private let cooldownInterval: TimeInterval = 300 // 5 minutes
+
+    static let defaultCPUWarningThreshold: Double = 80.0
+    static let defaultCPUCriticalThreshold: Double = 95.0
+    static let defaultRAMWarningThreshold: Double = 80.0
+    static let defaultRAMCriticalThreshold: Double = 95.0
+    static let notificationCooldownInterval: TimeInterval = 300
 
     private init() {}
+
+    var cooldownInterval: TimeInterval {
+        Self.notificationCooldownInterval
+    }
 
     // MARK: - Thresholds
 
     var cpuWarnThreshold: Double {
-        get { UserDefaults.standard.double(forKey: "pulse_cpuWarn").nonZeroOr(80.0) }
+        get { UserDefaults.standard.double(forKey: "pulse_cpuWarn").nonZeroOr(Self.defaultCPUWarningThreshold) }
         set { UserDefaults.standard.set(newValue, forKey: "pulse_cpuWarn") }
     }
 
     var cpuCriticalThreshold: Double {
-        get { UserDefaults.standard.double(forKey: "pulse_cpuCritical").nonZeroOr(95.0) }
+        get { UserDefaults.standard.double(forKey: "pulse_cpuCritical").nonZeroOr(Self.defaultCPUCriticalThreshold) }
         set { UserDefaults.standard.set(newValue, forKey: "pulse_cpuCritical") }
     }
 
     var ramWarnThreshold: Double {
-        get { UserDefaults.standard.double(forKey: "pulse_ramWarn").nonZeroOr(80.0) }
+        get { UserDefaults.standard.double(forKey: "pulse_ramWarn").nonZeroOr(Self.defaultRAMWarningThreshold) }
         set { UserDefaults.standard.set(newValue, forKey: "pulse_ramWarn") }
     }
 
     var ramCriticalThreshold: Double {
-        get { UserDefaults.standard.double(forKey: "pulse_ramCritical").nonZeroOr(95.0) }
+        get { UserDefaults.standard.double(forKey: "pulse_ramCritical").nonZeroOr(Self.defaultRAMCriticalThreshold) }
         set { UserDefaults.standard.set(newValue, forKey: "pulse_ramCritical") }
     }
 

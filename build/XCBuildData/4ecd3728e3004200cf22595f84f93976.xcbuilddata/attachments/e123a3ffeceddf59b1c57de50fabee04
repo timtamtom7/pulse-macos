@@ -1,0 +1,19 @@
+{
+  "" : {
+    "diagnostics" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/PulseShared.build/Objects-normal/arm64/PulseShared-primary.dia",
+    "emit-module-dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/PulseShared.build/Objects-normal/arm64/PulseShared-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/PulseShared.build/Objects-normal/arm64/PulseShared-primary-emit-module.dia",
+    "pch" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/PulseShared.build/Objects-normal/arm64/PulseShared-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/PulseShared.build/Objects-normal/arm64/PulseShared-primary.swiftdeps"
+  },
+  "/Users/mauriello/Dev/pulse-macos/Sources/PulseShared/PulseShared.swift" : {
+    "const-values" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/PulseShared.build/Objects-normal/arm64/PulseShared.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/PulseShared.build/Objects-normal/arm64/PulseShared.d",
+    "diagnostics" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/PulseShared.build/Objects-normal/arm64/PulseShared.dia",
+    "index-unit-output-path" : "/Pulse.build/Debug/PulseShared.build/Objects-normal/arm64/PulseShared.o",
+    "llvm-bc" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/PulseShared.build/Objects-normal/arm64/PulseShared.bc",
+    "object" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/PulseShared.build/Objects-normal/arm64/PulseShared.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/PulseShared.build/Objects-normal/arm64/PulseShared.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/pulse-macos/build/Pulse.build/Debug/PulseShared.build/Objects-normal/arm64/PulseShared~partial.swiftmodule"
+  }
+}

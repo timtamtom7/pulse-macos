@@ -9,6 +9,8 @@ struct PulseWidgetBundle: WidgetBundle {
     }
 }
 
+// MARK: - Timeline Entry
+
 struct PulseEntry: TimelineEntry {
     let date: Date
     let cpuPercent: Int
@@ -38,6 +40,8 @@ struct PulseProvider: TimelineProvider {
         )
     }
 }
+
+// MARK: - System Widget
 
 struct PulseSystemWidget: Widget {
     let kind = "PulseSystemWidget"
@@ -95,6 +99,8 @@ struct MetricRow: View {
         }
     }
 }
+
+// MARK: - Network Widget
 
 struct PulseNetworkWidget: Widget {
     let kind = "PulseNetworkWidget"

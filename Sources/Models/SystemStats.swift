@@ -88,7 +88,7 @@ struct HourlySample: Identifiable {
 
 // MARK: - Process Info
 
-struct AppProcessInfo: Identifiable {
+struct AppProcessInfo: Identifiable, Hashable {
     let id: Int32
     let name: String
     let cpuUsage: Double
@@ -103,6 +103,14 @@ struct AppProcessInfo: Identifiable {
     var cpuString: String {
         String(format: "%.1f%%", cpuUsage)
     }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+
+    static func == (lhs: AppProcessInfo, rhs: AppProcessInfo) -> Bool {
+        lhs.id == rhs.id
+    }
 }
 
 // MARK: - Process Monitor
@@ -111,6 +119,9 @@ import Darwin
 
 final class ProcessMonitor {
     static let shared = ProcessMonitor()
+
+    private var previousCPUInfo: [Int32: (userTime: UInt64, systemTime: UInt64, timestamp: Date)] = [:]
+    private let infoLock = NSLock()
 
     private init() {}
 
@@ -127,6 +138,7 @@ final class ProcessMonitor {
         guard sysctl(&mib, 4, &procList, &size, nil, 0) == 0 else { return [] }
 
         let actualCount = size / MemoryLayout<kinfo_proc>.stride
+        let now = Date()
 
         for i in 0..<actualCount {
             let proc = procList[i]
@@ -137,15 +149,13 @@ final class ProcessMonitor {
                 }
             }
 
-            // Skip system processes and current process
-            guard pid > 0, name != "login" else { continue }
+            guard pid > 0, !name.isEmpty, name != "login" else { continue }
 
-            // Get CPU and memory via task_info
-            let cpuUsage = getCPUUsage(for: pid)
+            let cpuUsage = getCPUUsage(for: pid, now: now)
             let memoryUsage = getMemoryUsage(for: pid)
             let user = getProcessUser(for: proc.kp_eproc.e_ucred.cr_uid)
 
-            if cpuUsage > 0 || memoryUsage > 0 {
+            if memoryUsage > 0 {
                 processes.append(AppProcessInfo(
                     id: pid,
                     name: name,
@@ -162,19 +172,7 @@ final class ProcessMonitor {
             .map { $0 }
     }
 
-    private func getCPUUsage(for pid: Int32) -> Double {
-        var taskInfo = task_basic_info()
-        var count = mach_msg_type_number_t(MemoryLayout<task_basic_info>.size) / 4
-
-        let result = withUnsafeMutablePointer(to: &taskInfo) { ptr in
-            ptr.withMemoryRebound(to: integer_t.self, capacity: Int(count)) { intPtr in
-                task_info(mach_task_self_, task_flavor_t(TASK_BASIC_INFO), intPtr, &count)
-            }
-        }
-
-        guard result == KERN_SUCCESS else { return 0 }
-
-        // Simple CPU approximation using user + system time
+    private func getCPUUsage(for pid: Int32, now: Date) -> Double {
         var rusageInfo = rusage_info_v0()
         var rusageSize = MemoryLayout<rusage_info_v0>.stride
         var mib: [Int32] = [CTL_KERN, KERN_PROC, KERN_PROC_PID, pid]
@@ -182,10 +180,25 @@ final class ProcessMonitor {
         let res = sysctl(&mib, 4, &rusageInfo, &rusageSize, nil, 0)
         guard res == 0 else { return 0 }
 
-        let totalTime = Double(rusageInfo.ri_user_time + rusageInfo.ri_system_time) / 1_000_000_000.0
+        let currentUserTime = rusageInfo.ri_user_time
+        let currentSystemTime = rusageInfo.ri_system_time
 
-        // Very rough approximation - this is a simplification
-        return min(totalTime, 100.0)
+        infoLock.lock()
+        defer { infoLock.unlock() }
+
+        if let previous = previousCPUInfo[pid] {
+            let timeDelta = Double(currentUserTime + currentSystemTime - previous.userTime - previous.systemTime)
+            let realDelta = now.timeIntervalSince(previous.timestamp)
+
+            if realDelta > 0 && timeDelta > 0 {
+                let cpuPercent = (timeDelta / 1_000_000_000.0) / realDelta * 100.0
+                previousCPUInfo[pid] = (currentUserTime, currentSystemTime, now)
+                return min(cpuPercent, Double(ProcessInfo.processInfo.activeProcessorCount) * 100.0)
+            }
+        }
+
+        previousCPUInfo[pid] = (currentUserTime, currentSystemTime, now)
+        return 0
     }
 
     private func getMemoryUsage(for pid: Int32) -> UInt64 {

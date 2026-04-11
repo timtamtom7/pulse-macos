@@ -9,7 +9,6 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     private var eventMonitor: Any?
 
     func applicationDidFinishLaunching(_ notification: Notification) {
-        // Initialize PulseState singleton for shortcuts
         PulseState.shared.configure(viewModel: viewModel)
 
         setupMenu()
@@ -19,10 +18,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
         SystemMonitor.shared.start()
 
-        // Load persisted samples on startup
         _ = SettingsStore.shared.getRecentSamples(hours: 24)
 
-        // Request notification authorization
         AlertNotificationService.shared.requestAuthorization()
     }
 
@@ -33,7 +30,6 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
 
-    // MARK: - Menu Bar Setup
     private func setupStatusItem() {
         statusItem = NSStatusBar.system.statusItem(withLength: 180)
 
@@ -44,14 +40,12 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
         updateStatusItemButton(button)
 
-        // Listen for stats updates to update the button
         SystemMonitor.shared.onStatsUpdate = { [weak self] stats in
-            DispatchQueue.main.async {
-                guard let self = self else { return }
-                self.updateStatusItemButton(self.statusItem.button!)
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self, let button = self.statusItem.button else { return }
+                self.updateStatusItemButton(button)
                 self.viewModel.stats = stats
 
-                // Check for CPU/RAM spikes
                 AlertNotificationService.shared.checkStats(stats)
             }
         }
@@ -118,7 +112,6 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         return NSAttributedString(attachment: attachment)
     }
 
-    // MARK: - Popover Setup
     private func setupPopover() {
         popover = NSPopover()
         popover.contentSize = NSSize(width: 360, height: 420)
@@ -127,7 +120,6 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         popover.contentViewController = NSHostingController(rootView: ContentView(viewModel: viewModel))
     }
 
-    // MARK: - Event Monitor (click outside to dismiss)
     private func setupEventMonitor() {
         eventMonitor = NSEvent.addGlobalMonitorForEvents(matching: [.leftMouseDown, .rightMouseDown]) { [weak self] _ in
             if let popover = self?.popover, popover.isShown {
@@ -136,7 +128,6 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
 
-    // MARK: - App Menu
     private func setupMenu() {
         let mainMenu = NSMenu()
 
@@ -159,7 +150,6 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         NSApp.mainMenu = mainMenu
     }
 
-    // MARK: - Actions
     @objc private func togglePopover() {
         guard let button = statusItem.button else { return }
 
@@ -202,13 +192,11 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     }
 }
 
-// MARK: - Global State for Shortcuts
-
 @MainActor
 final class PulseState {
     static let shared = PulseState()
 
-    var viewModel: PulseViewModel!
+    private(set) weak var viewModel: PulseViewModel?
     var stats: SystemStats { viewModel?.stats ?? .zero }
 
     private init() {}

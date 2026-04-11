@@ -10,82 +10,91 @@ struct DashboardView: View {
 
     var body: some View {
         ScrollView {
-            VStack(spacing: 16) {
-                // Header
-                HStack {
-                    Text("Mac Dashboard")
-                        .font(.title2)
-                        .fontWeight(.bold)
-
-                    Spacer()
-
-                    Button("Discover") {
-                        remoteService.discoverMacs()
-                    }
-                    .buttonStyle(.bordered)
-                    .disabled(remoteService.isDiscovering)
-
-                    Button("+ Add Mac") {
-                        showAddMac = true
-                    }
-                    .buttonStyle(.borderedProminent)
-                }
+            VStack(spacing: Theme.paddingMedium) {
+                headerView
 
                 if remoteService.isDiscovering {
-                    HStack {
-                        ProgressView()
-                        Text("Discovering Macs on network...")
-                            .foregroundColor(.secondary)
-                    }
-                    .padding()
+                    discoveringView
                 }
 
-                // Alerts
                 if let dashboard = remoteService.dashboard, !dashboard.alerts.isEmpty {
                     alertsSection(dashboard.alerts)
                 }
 
-                // Mac Grid
                 if remoteService.remoteMacs.isEmpty {
                     emptyState
                 } else {
                     macGrid
                 }
             }
-            .padding()
+            .padding(Theme.paddingMedium)
         }
         .sheet(isPresented: $showAddMac) {
             addMacSheet
         }
     }
 
+    private var headerView: some View {
+        HStack {
+            Text("Mac Dashboard")
+                .font(.system(size: Theme.fontSizeLarge, weight: .bold))
+                .foregroundColor(Theme.textPrimary)
+
+            Spacer()
+
+            Button("Discover") {
+                remoteService.discoverMacs()
+            }
+            .buttonStyle(.bordered)
+            .disabled(remoteService.isDiscovering)
+
+            Button("+ Add Mac") {
+                showAddMac = true
+            }
+            .buttonStyle(.borderedProminent)
+        }
+    }
+
+    private var discoveringView: some View {
+        HStack {
+            ProgressView()
+            Text("Discovering Macs on network...")
+                .font(.system(size: Theme.fontSizeBody))
+                .foregroundColor(Theme.textSecondary)
+        }
+        .padding(Theme.paddingMedium)
+    }
+
     private var emptyState: some View {
-        VStack(spacing: 16) {
+        VStack(spacing: Theme.paddingMedium) {
             Image(systemName: "desktopcomputer")
-                .font(.system(size: 48))
-                .foregroundColor(.secondary)
+                .font(.system(size: Theme.fontSizeLarge))
+                .foregroundColor(Theme.textSecondary)
 
             Text("No Macs Connected")
-                .font(.headline)
+                .font(.system(size: Theme.fontSizeSubheadline, weight: .medium))
+                .foregroundColor(Theme.textPrimary)
 
             Text("Add a Mac to monitor its system stats remotely")
-                .foregroundColor(.secondary)
+                .font(.system(size: Theme.fontSizeBody))
+                .foregroundColor(Theme.textSecondary)
 
             Button("Add Mac") {
                 showAddMac = true
             }
             .buttonStyle(.borderedProminent)
         }
-        .padding(40)
+        .padding(Theme.paddingLarge)
     }
 
     private func alertsSection(_ alerts: [DashboardAlert]) -> some View {
-        VStack(alignment: .leading, spacing: 8) {
+        VStack(alignment: .leading, spacing: Theme.paddingSmall) {
             HStack {
                 Image(systemName: "exclamationmark.triangle.fill")
-                    .foregroundColor(.orange)
+                    .foregroundColor(Theme.alertWarning)
                 Text("Active Alerts")
-                    .font(.headline)
+                    .font(.system(size: Theme.fontSizeBody, weight: .semibold))
+                    .foregroundColor(Theme.textPrimary)
             }
 
             ForEach(alerts) { alert in
@@ -95,27 +104,29 @@ struct DashboardView: View {
                         .frame(width: 8, height: 8)
 
                     Text(alert.macName)
-                        .fontWeight(.medium)
+                        .font(.system(size: Theme.fontSizeBody, weight: .medium))
+                        .foregroundColor(Theme.textPrimary)
 
                     Text(alert.message)
-                        .foregroundColor(.secondary)
+                        .font(.system(size: Theme.fontSizeLabel))
+                        .foregroundColor(Theme.textSecondary)
 
                     Spacer()
 
                     Text(formatDate(alert.timestamp))
-                        .font(.caption)
-                        .foregroundColor(.secondary)
+                        .font(.system(size: Theme.fontSizeCaption))
+                        .foregroundColor(Theme.textSecondary)
                 }
-                .padding(.vertical, 4)
+                .padding(.vertical, Theme.paddingMicro)
             }
         }
-        .padding()
-        .background(Color.orange.opacity(0.1))
-        .cornerRadius(8)
+        .padding(Theme.paddingMedium)
+        .background(Theme.alertWarning.opacity(0.1))
+        .cornerRadius(Theme.cornerRadiusSmall)
     }
 
     private var macGrid: some View {
-        LazyVGrid(columns: [GridItem(.adaptive(minimum: 200))], spacing: 16) {
+        LazyVGrid(columns: [GridItem(.adaptive(minimum: 200))], spacing: Theme.paddingMedium) {
             ForEach(remoteService.remoteMacs) { mac in
                 MacCard(mac: mac, onRefresh: {
                     Task {
@@ -127,10 +138,10 @@ struct DashboardView: View {
     }
 
     private var addMacSheet: some View {
-        VStack(spacing: 16) {
+        VStack(spacing: Theme.paddingMedium) {
             Text("Add Mac")
-                .font(.title2)
-                .fontWeight(.bold)
+                .font(.system(size: Theme.fontSizeLarge, weight: .bold))
+                .foregroundColor(Theme.textPrimary)
 
             TextField("Mac Name", text: $newMacName)
                 .textFieldStyle(.roundedBorder)
@@ -152,15 +163,15 @@ struct DashboardView: View {
                 .disabled(newMacName.isEmpty || newMacHostname.isEmpty)
             }
         }
-        .padding(24)
+        .padding(Theme.paddingMedium)
         .frame(width: 350)
     }
 
     private func severityColor(_ severity: AlertSeverity) -> Color {
         switch severity {
-        case .info: return .blue
-        case .warning: return .orange
-        case .critical: return .red
+        case .info: return Theme.alertInfo
+        case .warning: return Theme.alertWarning
+        case .critical: return Theme.alertCritical
         }
     }
 
@@ -178,35 +189,34 @@ struct MacCard: View {
     let onRefresh: () -> Void
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            // Header
+        VStack(alignment: .leading, spacing: Theme.paddingSmall) {
             HStack {
                 Image(systemName: "desktopcomputer")
-                    .font(.title2)
-                    .foregroundColor(mac.isOnline ? .green : .secondary)
+                    .font(.system(size: Theme.fontSizeTitle))
+                    .foregroundColor(mac.isOnline ? Theme.statusGreen : Theme.textSecondary)
 
                 VStack(alignment: .leading) {
                     Text(mac.name)
-                        .font(.headline)
+                        .font(.system(size: Theme.fontSizeBody, weight: .medium))
+                        .foregroundColor(Theme.textPrimary)
                     Text(mac.isOnline ? "Online" : "Offline")
-                        .font(.caption)
-                        .foregroundColor(mac.isOnline ? .green : .secondary)
+                        .font(.system(size: Theme.fontSizeCaption))
+                        .foregroundColor(mac.isOnline ? Theme.statusGreen : Theme.textSecondary)
                 }
 
                 Spacer()
 
                 Button(action: onRefresh) {
                     Image(systemName: "arrow.clockwise")
-                        .font(.caption)
+                        .font(.system(size: Theme.fontSizeCaption))
                 }
                 .buttonStyle(.plain)
             }
 
             Divider()
 
-            // Stats
             if let stats = mac.systemStats {
-                VStack(spacing: 8) {
+                VStack(spacing: Theme.paddingMicro) {
                     statRow("CPU", value: "\(Int(stats.cpuUsage))%", color: cpuColor(stats.cpuUsage))
                     statRow("Memory", value: "\(Int(stats.memoryUsage))%", color: memoryColor(stats.memoryUsage))
                     statRow("Disk", value: "\(Int(stats.diskUsage))%", color: diskColor(stats.diskUsage))
@@ -216,62 +226,52 @@ struct MacCard: View {
                 }
             } else if mac.isOnline {
                 Text("Loading stats...")
-                    .foregroundColor(.secondary)
-                    .font(.caption)
+                    .font(.system(size: Theme.fontSizeCaption))
+                    .foregroundColor(Theme.textSecondary)
             } else {
                 Text("No data available")
-                    .foregroundColor(.secondary)
-                    .font(.caption)
+                    .font(.system(size: Theme.fontSizeCaption))
+                    .foregroundColor(Theme.textSecondary)
             }
         }
-        .padding()
-        .background(Color(NSColor.controlBackgroundColor))
-        .cornerRadius(12)
+        .padding(Theme.paddingSmall)
+        .glassCard(cornerRadius: Theme.cornerRadius)
     }
 
     private func statRow(_ label: String, value: String, color: Color) -> some View {
         HStack {
             Text(label)
-                .font(.caption)
-                .foregroundColor(.secondary)
+                .font(.system(size: Theme.fontSizeCaption))
+                .foregroundColor(Theme.textSecondary)
             Spacer()
             Text(value)
-                .font(.caption)
-                .fontWeight(.medium)
+                .font(.system(size: Theme.fontSizeCaption, weight: .medium))
                 .foregroundColor(color)
         }
     }
 
     private func cpuColor(_ value: Double) -> Color {
-        switch value {
-        case 0..<60: return .green
-        case 60..<85: return .orange
-        default: return .red
-        }
+        if value < 60 { return Theme.statusGreen }
+        if value < 85 { return Theme.statusAmber }
+        return Theme.statusRed
     }
 
     private func memoryColor(_ value: Double) -> Color {
-        switch value {
-        case 0..<70: return .green
-        case 70..<90: return .orange
-        default: return .red
-        }
+        if value < 70 { return Theme.statusGreen }
+        if value < 90 { return Theme.statusAmber }
+        return Theme.statusRed
     }
 
     private func diskColor(_ value: Double) -> Color {
-        switch value {
-        case 0..<80: return .green
-        case 80..<95: return .orange
-        default: return .red
-        }
+        if value < 80 { return Theme.statusGreen }
+        if value < 95 { return Theme.statusAmber }
+        return Theme.statusRed
     }
 
     private func tempColor(_ value: Double) -> Color {
-        switch value {
-        case 0..<60: return .green
-        case 60..<80: return .orange
-        default: return .red
-        }
+        if value < 60 { return Theme.statusGreen }
+        if value < 80 { return Theme.statusAmber }
+        return Theme.statusRed
     }
 }
 
@@ -283,12 +283,11 @@ struct HistoricalReportsView: View {
 
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 24) {
+            VStack(alignment: .leading, spacing: Theme.paddingMedium) {
                 Text("Historical Reports")
-                    .font(.title2)
-                    .fontWeight(.bold)
+                    .font(.system(size: Theme.fontSizeLarge, weight: .bold))
+                    .foregroundColor(Theme.textPrimary)
 
-                // Report Type Picker
                 Picker("Report Type", selection: $selectedReportType) {
                     Text("Weekly").tag(ReportType.weekly)
                     Text("Monthly").tag(ReportType.monthly)
@@ -301,17 +300,23 @@ struct HistoricalReportsView: View {
                 }
                 .buttonStyle(.borderedProminent)
 
-                // Recent Reports
                 if !reportService.reports.isEmpty {
-                    Text("Recent Reports")
-                        .font(.headline)
-
-                    ForEach(reportService.reports) { report in
-                        reportRow(report)
-                    }
+                    recentReportsSection
                 }
             }
-            .padding()
+            .padding(Theme.paddingMedium)
+        }
+    }
+
+    private var recentReportsSection: some View {
+        VStack(alignment: .leading, spacing: Theme.paddingSmall) {
+            Text("Recent Reports")
+                .font(.system(size: Theme.fontSizeBody, weight: .semibold))
+                .foregroundColor(Theme.textPrimary)
+
+            ForEach(reportService.reports) { report in
+                reportRow(report)
+            }
         }
     }
 
@@ -332,21 +337,22 @@ struct HistoricalReportsView: View {
         HStack {
             VStack(alignment: .leading) {
                 Text("\(report.type.rawValue) Report")
-                    .font(.subheadline)
-                    .fontWeight(.medium)
+                    .font(.system(size: Theme.fontSizeBody, weight: .medium))
+                    .foregroundColor(Theme.textPrimary)
                 Text("\(formatDate(report.startDate)) - \(formatDate(report.endDate))")
-                    .font(.caption)
-                    .foregroundColor(.secondary)
+                    .font(.system(size: Theme.fontSizeCaption))
+                    .foregroundColor(Theme.textSecondary)
             }
 
             Spacer()
 
             VStack(alignment: .trailing) {
                 Text("Avg CPU: \(Int(report.summary.avgCPU))%")
-                    .font(.caption)
+                    .font(.system(size: Theme.fontSizeCaption))
+                    .foregroundColor(Theme.textPrimary)
                 Text("\(report.anomalies.count) anomalies")
-                    .font(.caption)
-                    .foregroundColor(.secondary)
+                    .font(.system(size: Theme.fontSizeCaption))
+                    .foregroundColor(Theme.textSecondary)
             }
 
             Button("Export") {
@@ -357,9 +363,8 @@ struct HistoricalReportsView: View {
             .buttonStyle(.bordered)
             .controlSize(.small)
         }
-        .padding()
-        .background(Color(NSColor.controlBackgroundColor))
-        .cornerRadius(8)
+        .padding(Theme.paddingSmall)
+        .glassCard(cornerRadius: Theme.cornerRadiusSmall)
     }
 
     private func formatDate(_ date: Date) -> String {

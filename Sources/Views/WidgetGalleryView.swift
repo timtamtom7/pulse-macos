@@ -5,20 +5,12 @@ struct WidgetGalleryView: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            // Header
-            HStack {
-                Text("Widgets")
-                    .font(.system(size: 16, weight: .semibold))
-                    .foregroundColor(.primary)
-                Spacer()
-            }
-            .padding(12)
+            headerView
 
             Divider()
 
             ScrollView {
-                VStack(spacing: 12) {
-                    // Small Widget Preview
+                VStack(spacing: Theme.paddingSmall) {
                     widgetPreview(
                         title: "Compact",
                         description: "CPU and RAM in a small frame",
@@ -26,7 +18,6 @@ struct WidgetGalleryView: View {
                         preview: compactWidget
                     )
 
-                    // Medium Widget Preview
                     widgetPreview(
                         title: "Standard",
                         description: "Full system overview",
@@ -34,7 +25,6 @@ struct WidgetGalleryView: View {
                         preview: standardWidget
                     )
 
-                    // Network Widget
                     widgetPreview(
                         title: "Network Focus",
                         description: "Download and upload speeds",
@@ -42,169 +32,139 @@ struct WidgetGalleryView: View {
                         preview: networkWidget
                     )
                 }
-                .padding(12)
+                .padding(Theme.paddingMedium)
             }
         }
         .frame(width: 400, height: 420)
-        .background(Color(.windowBackgroundColor))
+        .background(Theme.background)
+    }
+
+    private var headerView: some View {
+        HStack {
+            Text("Widgets")
+                .font(.system(size: Theme.fontSizeTitle, weight: .semibold))
+                .foregroundColor(Theme.textPrimary)
+            Spacer()
+        }
+        .padding(Theme.paddingMedium)
     }
 
     private func widgetPreview(title: String, description: String, icon: String, preview: some View) -> some View {
-        VStack(alignment: .leading, spacing: 8) {
+        VStack(alignment: .leading, spacing: Theme.paddingSmall) {
             HStack {
                 Image(systemName: icon)
-                    .font(.system(size: 14))
-                    .foregroundColor(.accentColor)
+                    .font(.system(size: Theme.fontSizeIconLarge))
+                    .foregroundColor(Theme.networkDown)
                 VStack(alignment: .leading, spacing: 2) {
                     Text(title)
-                        .font(.system(size: 13, weight: .semibold))
-                        .foregroundColor(.primary)
+                        .font(.system(size: Theme.fontSizeSubheadline, weight: .semibold))
+                        .foregroundColor(Theme.textPrimary)
                     Text(description)
-                        .font(.system(size: 11))
-                        .foregroundColor(.secondary)
+                        .font(.system(size: Theme.fontSizeLabel))
+                        .foregroundColor(Theme.textSecondary)
                 }
                 Spacer()
             }
 
             preview
                 .frame(height: 80)
-                .background(Color(.controlBackgroundColor))
-                .cornerRadius(8)
+                .solidCard(cornerRadius: Theme.cornerRadiusSmall)
         }
     }
 
     private var compactWidget: some View {
-        HStack(spacing: 12) {
-            VStack(alignment: .leading, spacing: 4) {
-                HStack(spacing: 4) {
+        HStack(spacing: Theme.paddingSmall) {
+            VStack(alignment: .leading, spacing: Theme.paddingMicro) {
+                HStack(spacing: Theme.paddingMicro) {
                     Circle()
-                        .fill(Color.green)
+                        .fill(Theme.statusGreen)
                         .frame(width: 8, height: 8)
                     Text("CPU")
-                        .font(.system(size: 10))
-                        .foregroundColor(.secondary)
+                        .font(.system(size: Theme.fontSizeCaption))
+                        .foregroundColor(Theme.textSecondary)
                 }
                 Text(String(format: "%.0f%%", viewModel.stats.cpuTotal))
-                    .font(.system(size: 18, weight: .bold, design: .rounded))
-                    .foregroundColor(.primary)
+                    .font(.system(size: Theme.fontSizeLarge, weight: .bold, design: .rounded))
+                    .foregroundColor(Theme.textPrimary)
             }
 
-            VStack(alignment: .leading, spacing: 4) {
-                HStack(spacing: 4) {
+            VStack(alignment: .leading, spacing: Theme.paddingMicro) {
+                HStack(spacing: Theme.paddingMicro) {
                     Circle()
-                        .fill(Color.blue)
+                        .fill(Theme.networkDown)
                         .frame(width: 8, height: 8)
                     Text("RAM")
-                        .font(.system(size: 10))
-                        .foregroundColor(.secondary)
+                        .font(.system(size: Theme.fontSizeCaption))
+                        .foregroundColor(Theme.textSecondary)
                 }
                 Text(String(format: "%.0f%%", viewModel.stats.ramPercentage))
-                    .font(.system(size: 18, weight: .bold, design: .rounded))
-                    .foregroundColor(.primary)
+                    .font(.system(size: Theme.fontSizeLarge, weight: .bold, design: .rounded))
+                    .foregroundColor(Theme.textPrimary)
             }
 
             Spacer()
         }
-        .padding(12)
+        .padding(Theme.paddingSmall)
     }
 
     private var standardWidget: some View {
-        HStack(spacing: 16) {
-            // CPU
-            VStack(alignment: .leading, spacing: 4) {
-                HStack(spacing: 4) {
-                    Circle()
-                        .fill(Color.green)
-                        .frame(width: 8, height: 8)
-                    Text("CPU")
-                        .font(.system(size: 10))
-                        .foregroundColor(.secondary)
-                }
-                Text(String(format: "%.0f%%", viewModel.stats.cpuTotal))
-                    .font(.system(size: 16, weight: .bold, design: .rounded))
-                    .foregroundColor(.primary)
-            }
-
-            // RAM
-            VStack(alignment: .leading, spacing: 4) {
-                HStack(spacing: 4) {
-                    Circle()
-                        .fill(Color.blue)
-                        .frame(width: 8, height: 8)
-                    Text("RAM")
-                        .font(.system(size: 10))
-                        .foregroundColor(.secondary)
-                }
-                Text(String(format: "%.0f%%", viewModel.stats.ramPercentage))
-                    .font(.system(size: 16, weight: .bold, design: .rounded))
-                    .foregroundColor(.primary)
-            }
-
-            // Disk
-            VStack(alignment: .leading, spacing: 4) {
-                HStack(spacing: 4) {
-                    Circle()
-                        .fill(Color.orange)
-                        .frame(width: 8, height: 8)
-                    Text("Disk")
-                        .font(.system(size: 10))
-                        .foregroundColor(.secondary)
-                }
-                Text(String(format: "%.0f%%", viewModel.stats.diskPercentage))
-                    .font(.system(size: 16, weight: .bold, design: .rounded))
-                    .foregroundColor(.primary)
-            }
-
+        HStack(spacing: Theme.paddingMedium) {
+            metricVStack(indicator: Theme.statusGreen, label: "CPU", value: String(format: "%.0f%%", viewModel.stats.cpuTotal))
+            metricVStack(indicator: Theme.networkDown, label: "RAM", value: String(format: "%.0f%%", viewModel.stats.ramPercentage))
+            metricVStack(indicator: Theme.statusAmber, label: "Disk", value: String(format: "%.0f%%", viewModel.stats.diskPercentage))
             Spacer()
         }
-        .padding(12)
+        .padding(Theme.paddingSmall)
+    }
+
+    private func metricVStack(indicator: Color, label: String, value: String) -> some View {
+        VStack(alignment: .leading, spacing: Theme.paddingMicro) {
+            HStack(spacing: Theme.paddingMicro) {
+                Circle()
+                    .fill(indicator)
+                    .frame(width: 8, height: 8)
+                Text(label)
+                    .font(.system(size: Theme.fontSizeCaption))
+                    .foregroundColor(Theme.textSecondary)
+            }
+            Text(value)
+                .font(.system(size: Theme.fontSizeBody, weight: .bold, design: .rounded))
+                .foregroundColor(Theme.textPrimary)
+        }
     }
 
     private var networkWidget: some View {
-        HStack(spacing: 16) {
-            VStack(alignment: .leading, spacing: 4) {
-                HStack(spacing: 4) {
+        HStack(spacing: Theme.paddingMedium) {
+            VStack(alignment: .leading, spacing: Theme.paddingMicro) {
+                HStack(spacing: Theme.paddingMicro) {
                     Image(systemName: "arrow.down.circle.fill")
-                        .font(.system(size: 12))
-                        .foregroundColor(.green)
+                        .font(.system(size: Theme.fontSizeIcon))
+                        .foregroundColor(Theme.statusGreen)
                     Text("Download")
-                        .font(.system(size: 10))
-                        .foregroundColor(.secondary)
+                        .font(.system(size: Theme.fontSizeCaption))
+                        .foregroundColor(Theme.textSecondary)
                 }
-                Text(formatBytesPerSecond(viewModel.stats.bandwidthIn))
-                    .font(.system(size: 16, weight: .bold, design: .monospaced))
-                    .foregroundColor(.primary)
+                Text(FormatUtils.formatSpeed(bytesPerSecond: viewModel.stats.bandwidthIn))
+                    .font(.system(size: Theme.fontSizeBody, weight: .bold, design: .monospaced))
+                    .foregroundColor(Theme.textPrimary)
             }
 
-            VStack(alignment: .leading, spacing: 4) {
-                HStack(spacing: 4) {
+            VStack(alignment: .leading, spacing: Theme.paddingMicro) {
+                HStack(spacing: Theme.paddingMicro) {
                     Image(systemName: "arrow.up.circle.fill")
-                        .font(.system(size: 12))
-                        .foregroundColor(.blue)
+                        .font(.system(size: Theme.fontSizeIcon))
+                        .foregroundColor(Theme.networkUp)
                     Text("Upload")
-                        .font(.system(size: 10))
-                        .foregroundColor(.secondary)
+                        .font(.system(size: Theme.fontSizeCaption))
+                        .foregroundColor(Theme.textSecondary)
                 }
-                Text(formatBytesPerSecond(viewModel.stats.bandwidthOut))
-                    .font(.system(size: 16, weight: .bold, design: .monospaced))
-                    .foregroundColor(.primary)
+                Text(FormatUtils.formatSpeed(bytesPerSecond: viewModel.stats.bandwidthOut))
+                    .font(.system(size: Theme.fontSizeBody, weight: .bold, design: .monospaced))
+                    .foregroundColor(Theme.textPrimary)
             }
 
             Spacer()
         }
-        .padding(12)
-    }
-
-    private func formatBytesPerSecond(_ bps: Double) -> String {
-        let kbps = bps / 1024
-        let mbps = kbps / 1024
-
-        if mbps >= 1 {
-            return String(format: "%.1f MB/s", mbps)
-        } else if kbps >= 1 {
-            return String(format: "%.0f KB/s", kbps)
-        } else {
-            return String(format: "%.0f B/s", bps)
-        }
+        .padding(Theme.paddingSmall)
     }
 }

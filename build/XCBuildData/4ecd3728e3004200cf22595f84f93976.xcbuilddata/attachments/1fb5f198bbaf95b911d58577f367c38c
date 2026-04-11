@@ -1,0 +1,5 @@
+ extern const unsigned char PulseVersionString[];
+ extern const double PulseVersionNumber;
+
+ const unsigned char PulseVersionString[] __attribute__ ((used)) = "@(#)PROGRAM:Pulse  PROJECT:Pulse-1" "\n";
+ const double PulseVersionNumber __attribute__ ((used)) = (double)1.;

@@ -55,6 +55,7 @@ struct ContentView: View {
         }
         .frame(width: 380, height: 420)
         .background(Theme.background)
+        .accessibilityElement(children: .contain)
     }
 }
 
@@ -65,78 +66,77 @@ struct NetworkTabView: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            // Header
-            HStack {
-                Text("Network")
-                    .font(.system(size: 16, weight: .semibold))
-                    .foregroundColor(.primary)
-                Spacer()
-            }
-            .padding(12)
+            headerView
 
             Divider()
 
             ScrollView {
-                VStack(spacing: 12) {
-                    // Download/Upload cards
-                    HStack(spacing: 12) {
+                VStack(spacing: Theme.paddingSmall) {
+                    HStack(spacing: Theme.paddingSmall) {
                         networkCard(
                             title: "Downloaded",
-                            value: formatBytes(viewModel.stats.networkInDelta),
+                            value: FormatUtils.formatBytes(viewModel.stats.networkInDelta),
                             icon: "arrow.down.circle.fill",
-                            color: .green
+                            color: Theme.networkDown
                         )
 
                         networkCard(
                             title: "Uploaded",
-                            value: formatBytes(viewModel.stats.networkOutDelta),
+                            value: FormatUtils.formatBytes(viewModel.stats.networkOutDelta),
                             icon: "arrow.up.circle.fill",
-                            color: .blue
+                            color: Theme.networkUp
                         )
                     }
 
-                    // Speed section
                     speedSection
                 }
-                .padding(12)
+                .padding(Theme.paddingMedium)
             }
         }
+    }
+
+    private var headerView: some View {
+        HStack {
+            Text("Network")
+                .font(.system(size: Theme.fontSizeTitle, weight: .semibold))
+                .foregroundColor(Theme.textPrimary)
+            Spacer()
+        }
+        .padding(Theme.paddingMedium)
     }
 
     private func networkCard(title: String, value: String, icon: String, color: Color) -> some View {
-        VStack(alignment: .leading, spacing: 6) {
-            HStack(spacing: 4) {
+        VStack(alignment: .leading, spacing: Theme.paddingMicro) {
+            HStack(spacing: Theme.paddingMicro) {
                 Image(systemName: icon)
-                    .font(.system(size: 12))
+                    .font(.system(size: Theme.fontSizeIcon))
                     .foregroundColor(color)
                 Text(title)
-                    .font(.system(size: 11))
-                    .foregroundColor(.secondary)
+                    .font(.system(size: Theme.fontSizeLabel))
+                    .foregroundColor(Theme.textSecondary)
             }
 
             Text(value)
-                .font(.system(size: 18, weight: .bold, design: .rounded))
-                .foregroundColor(.primary)
+                .font(.system(size: Theme.fontSizeLarge, weight: .bold, design: .rounded))
+                .foregroundColor(Theme.textPrimary)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        .padding(10)
-        .background(Color(.controlBackgroundColor))
-        .cornerRadius(8)
+        .padding(Theme.paddingSmall)
+        .solidCard(cornerRadius: Theme.cornerRadiusSmall)
     }
 
     private var speedSection: some View {
-        VStack(alignment: .leading, spacing: 8) {
+        VStack(alignment: .leading, spacing: Theme.paddingSmall) {
             Text("Current Speed")
-                .font(.system(size: 12, weight: .medium))
-                .foregroundColor(.secondary)
+                .font(.system(size: Theme.fontSizeBody, weight: .medium))
+                .foregroundColor(Theme.textSecondary)
 
-            VStack(spacing: 8) {
-                speedRow(label: "Download", value: formatBytesPerSecond(viewModel.stats.bandwidthIn), color: .green)
-                speedRow(label: "Upload", value: formatBytesPerSecond(viewModel.stats.bandwidthOut), color: .blue)
+            VStack(spacing: Theme.paddingSmall) {
+                speedRow(label: "Download", value: FormatUtils.formatSpeed(bytesPerSecond: viewModel.stats.bandwidthIn), color: Theme.networkDown)
+                speedRow(label: "Upload", value: FormatUtils.formatSpeed(bytesPerSecond: viewModel.stats.bandwidthOut), color: Theme.networkUp)
             }
-            .padding(10)
-            .background(Color(.controlBackgroundColor))
-            .cornerRadius(8)
+            .padding(Theme.paddingSmall)
+            .solidCard(cornerRadius: Theme.cornerRadiusSmall)
         }
     }
 
@@ -146,41 +146,12 @@ struct NetworkTabView: View {
                 .fill(color)
                 .frame(width: 8, height: 8)
             Text(label)
-                .font(.system(size: 12))
-                .foregroundColor(.secondary)
+                .font(.system(size: Theme.fontSizeBody))
+                .foregroundColor(Theme.textSecondary)
             Spacer()
             Text(value)
-                .font(.system(size: 12, weight: .medium, design: .monospaced))
-                .foregroundColor(.primary)
-        }
-    }
-
-    private func formatBytes(_ bytes: UInt64) -> String {
-        let kb = Double(bytes) / 1024
-        let mb = kb / 1024
-        let gb = mb / 1024
-
-        if gb >= 1 {
-            return String(format: "%.2f GB", gb)
-        } else if mb >= 1 {
-            return String(format: "%.1f MB", mb)
-        } else if kb >= 1 {
-            return String(format: "%.0f KB", kb)
-        } else {
-            return "\(bytes) B"
-        }
-    }
-
-    private func formatBytesPerSecond(_ bps: Double) -> String {
-        let kbps = bps / 1024
-        let mbps = kbps / 1024
-
-        if mbps >= 1 {
-            return String(format: "%.2f MB/s", mbps)
-        } else if kbps >= 1 {
-            return String(format: "%.1f KB/s", kbps)
-        } else {
-            return String(format: "%.0f B/s", bps)
+                .font(.system(size: Theme.fontSizeBody, weight: .medium, design: .monospaced))
+                .foregroundColor(Theme.textPrimary)
         }
     }
 }
@@ -192,7 +163,6 @@ struct OverviewTabView: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            // Header
             headerView
 
             ScrollView {
@@ -210,7 +180,7 @@ struct OverviewTabView: View {
     private var headerView: some View {
         HStack {
             Text("Pulse")
-                .font(.system(size: 18, weight: .bold))
+                .font(.system(size: Theme.fontSizeLarge, weight: .bold))
                 .foregroundColor(Theme.textPrimary)
 
             Spacer()
@@ -218,24 +188,25 @@ struct OverviewTabView: View {
             Button(action: { NSApplication.shared.terminate(nil) }) {
                 Image(systemName: "xmark.circle.fill")
                     .foregroundColor(Theme.textSecondary)
-                    .font(.system(size: 16))
+                    .font(.system(size: Theme.fontSizeIconLarge))
             }
             .buttonStyle(.plain)
+            .accessibilityLabel("Close Pulse")
         }
         .padding(.horizontal, Theme.paddingMedium)
         .padding(.vertical, Theme.paddingSmall)
-        .background(Theme.surface)
+        .glassCard(cornerRadius: Theme.cornerRadius)
     }
 
     // MARK: - CPU Section
     private var cpuSection: some View {
         VStack(alignment: .leading, spacing: Theme.paddingSmall) {
             Text("CPU")
-                .font(.system(size: 12, weight: .semibold))
+                .font(.system(size: Theme.fontSizeBody, weight: .semibold))
                 .foregroundColor(Theme.textSecondary)
+                .accessibilityLabel("CPU usage")
 
             HStack(spacing: Theme.paddingMedium) {
-                // Circular ring
                 ZStack {
                     Circle()
                         .stroke(Theme.cpuIdle, lineWidth: 6)
@@ -254,11 +225,11 @@ struct OverviewTabView: View {
                         .rotationEffect(.degrees(-90))
 
                     Text(String(format: "%.0f%%", viewModel.stats.cpuTotal))
-                        .font(.system(size: 14, weight: .bold, design: .rounded))
+                        .font(.system(size: Theme.fontSizeHeadline, weight: .bold, design: .rounded))
                         .foregroundColor(Theme.textPrimary)
                 }
 
-                VStack(alignment: .leading, spacing: 4) {
+                VStack(alignment: .leading, spacing: Theme.paddingMicro) {
                     legendRow(color: Theme.cpuUser, label: "User", value: String(format: "%.1f%%", viewModel.stats.cpuUser))
                     legendRow(color: Theme.cpuSystem, label: "System", value: String(format: "%.1f%%", viewModel.stats.cpuSystem))
                     legendRow(color: Theme.cpuIdle, label: "Idle", value: String(format: "%.1f%%", viewModel.stats.cpuIdle))
@@ -272,8 +243,8 @@ struct OverviewTabView: View {
             }
         }
         .padding(Theme.paddingMedium)
-        .background(Theme.surface)
-        .cornerRadius(Theme.cornerRadius)
+        .glassCard(cornerRadius: Theme.cornerRadius)
+        .accessibilityElement(children: .contain)
     }
 
     // MARK: - RAM Section
@@ -281,30 +252,32 @@ struct OverviewTabView: View {
         VStack(alignment: .leading, spacing: Theme.paddingSmall) {
             HStack {
                 Text("RAM")
-                    .font(.system(size: 12, weight: .semibold))
+                    .font(.system(size: Theme.fontSizeBody, weight: .semibold))
                     .foregroundColor(Theme.textSecondary)
+                    .accessibilityLabel("Memory usage")
                 Spacer()
                 Text(String(format: "%.0f%%", viewModel.stats.ramPercentage * 100))
-                    .font(.system(size: 12, weight: .bold, design: .rounded))
+                    .font(.system(size: Theme.fontSizeBody, weight: .bold, design: .rounded))
                     .foregroundColor(Theme.usageColor(for: viewModel.stats.ramPercentage))
+                    .accessibilityLabel("\(Int(viewModel.stats.ramPercentage * 100)) percent memory used")
             }
 
             GeometryReader { geometry in
                 ZStack(alignment: .leading) {
-                    RoundedRectangle(cornerRadius: 4)
+                    Capsule()
                         .fill(Theme.surfaceLight)
                         .frame(height: 8)
 
-                    RoundedRectangle(cornerRadius: 4)
+                    Capsule()
                         .fill(Theme.usageColor(for: viewModel.stats.ramPercentage))
-                        .frame(width: geometry.size.width * CGFloat(viewModel.stats.ramPercentage), height: 8)
-                        .animation(.easeInOut(duration: 0.3), value: viewModel.stats.ramPercentage)
+                        .frame(width: max(0, geometry.size.width * CGFloat(viewModel.stats.ramPercentage)), height: 8)
+                        .animation(Theme.springAnimation, value: viewModel.stats.ramPercentage)
                 }
             }
             .frame(height: 8)
 
-            Text("\(formatBytes(viewModel.stats.ramUsed)) / \(formatBytes(viewModel.stats.ramTotal))")
-                .font(.system(size: 11))
+            Text("\(FormatUtils.formatBytes(viewModel.stats.ramUsed, precision: 0)) / \(FormatUtils.formatBytes(viewModel.stats.ramTotal, precision: 0))")
+                .font(.system(size: Theme.fontSizeLabel))
                 .foregroundColor(Theme.textSecondary)
 
             if viewModel.stats.ramPercentage > 0.9 {
@@ -312,8 +285,8 @@ struct OverviewTabView: View {
             }
         }
         .padding(Theme.paddingMedium)
-        .background(Theme.surface)
-        .cornerRadius(Theme.cornerRadius)
+        .glassCard(cornerRadius: Theme.cornerRadius)
+        .accessibilityElement(children: .contain)
     }
 
     // MARK: - Disk Section
@@ -321,30 +294,32 @@ struct OverviewTabView: View {
         VStack(alignment: .leading, spacing: Theme.paddingSmall) {
             HStack {
                 Text("SSD")
-                    .font(.system(size: 12, weight: .semibold))
+                    .font(.system(size: Theme.fontSizeBody, weight: .semibold))
                     .foregroundColor(Theme.textSecondary)
+                    .accessibilityLabel("Disk usage")
                 Spacer()
                 Text(String(format: "%.0f%%", viewModel.stats.diskPercentage * 100))
-                    .font(.system(size: 12, weight: .bold, design: .rounded))
+                    .font(.system(size: Theme.fontSizeBody, weight: .bold, design: .rounded))
                     .foregroundColor(Theme.usageColor(for: viewModel.stats.diskPercentage))
+                    .accessibilityLabel("\(Int(viewModel.stats.diskPercentage * 100)) percent disk used")
             }
 
             GeometryReader { geometry in
                 ZStack(alignment: .leading) {
-                    RoundedRectangle(cornerRadius: 4)
+                    Capsule()
                         .fill(Theme.surfaceLight)
                         .frame(height: 8)
 
-                    RoundedRectangle(cornerRadius: 4)
+                    Capsule()
                         .fill(Theme.usageColor(for: viewModel.stats.diskPercentage))
-                        .frame(width: geometry.size.width * CGFloat(min(viewModel.stats.diskPercentage, 1.0)), height: 8)
-                        .animation(.easeInOut(duration: 0.3), value: viewModel.stats.diskPercentage)
+                        .frame(width: max(0, geometry.size.width * CGFloat(min(viewModel.stats.diskPercentage, 1.0))), height: 8)
+                        .animation(Theme.springAnimation, value: viewModel.stats.diskPercentage)
                 }
             }
             .frame(height: 8)
 
-            Text("\(formatBytes(viewModel.stats.diskUsed)) used of \(formatBytes(viewModel.stats.diskTotal))")
-                .font(.system(size: 11))
+            Text("\(FormatUtils.formatBytes(viewModel.stats.diskUsed, precision: 0)) used of \(FormatUtils.formatBytes(viewModel.stats.diskTotal, precision: 0))")
+                .font(.system(size: Theme.fontSizeLabel))
                 .foregroundColor(Theme.textSecondary)
 
             if viewModel.stats.diskPercentage > 0.9 {
@@ -352,33 +327,36 @@ struct OverviewTabView: View {
             }
         }
         .padding(Theme.paddingMedium)
-        .background(Theme.surface)
-        .cornerRadius(Theme.cornerRadius)
+        .glassCard(cornerRadius: Theme.cornerRadius)
+        .accessibilityElement(children: .contain)
     }
 
     // MARK: - Network Section
     private var networkSection: some View {
         VStack(alignment: .leading, spacing: Theme.paddingSmall) {
             Text("Network")
-                .font(.system(size: 12, weight: .semibold))
+                .font(.system(size: Theme.fontSizeBody, weight: .semibold))
                 .foregroundColor(Theme.textSecondary)
+                .accessibilityLabel("Network activity")
 
             HStack(spacing: Theme.paddingLarge) {
-                HStack(spacing: 4) {
+                HStack(spacing: Theme.paddingMicro) {
                     Image(systemName: "arrow.up.circle.fill")
                         .foregroundColor(Theme.networkUp)
-                        .font(.system(size: 14))
+                        .font(.system(size: Theme.fontSizeIconLarge))
+                        .accessibilityLabel("Upload")
                     Text(NetworkService.shared.formatSpeed(bytesPerSecond: viewModel.stats.networkOutDelta))
-                        .font(.system(size: 12, weight: .medium, design: .monospaced))
+                        .font(.system(size: Theme.fontSizeBody, weight: .medium, design: .monospaced))
                         .foregroundColor(Theme.textPrimary)
                 }
 
-                HStack(spacing: 4) {
+                HStack(spacing: Theme.paddingMicro) {
                     Image(systemName: "arrow.down.circle.fill")
                         .foregroundColor(Theme.networkDown)
-                        .font(.system(size: 14))
+                        .font(.system(size: Theme.fontSizeIconLarge))
+                        .accessibilityLabel("Download")
                     Text(NetworkService.shared.formatSpeed(bytesPerSecond: viewModel.stats.networkInDelta))
-                        .font(.system(size: 12, weight: .medium, design: .monospaced))
+                        .font(.system(size: Theme.fontSizeBody, weight: .medium, design: .monospaced))
                         .foregroundColor(Theme.textPrimary)
                 }
 
@@ -386,51 +364,40 @@ struct OverviewTabView: View {
             }
         }
         .padding(Theme.paddingMedium)
-        .background(Theme.surface)
-        .cornerRadius(Theme.cornerRadius)
+        .glassCard(cornerRadius: Theme.cornerRadius)
+        .accessibilityElement(children: .contain)
     }
 
     // MARK: - Helpers
     private func legendRow(color: Color, label: String, value: String) -> some View {
-        HStack(spacing: 6) {
+        HStack(spacing: Theme.paddingMicro) {
             Circle()
                 .fill(color)
                 .frame(width: 8, height: 8)
             Text(label)
-                .font(.system(size: 11))
+                .font(.system(size: Theme.fontSizeLabel))
                 .foregroundColor(Theme.textSecondary)
             Spacer()
             Text(value)
-                .font(.system(size: 11, design: .rounded))
+                .font(.system(size: Theme.fontSizeLabel, design: .rounded))
                 .foregroundColor(Theme.textPrimary)
         }
+        .accessibilityElement(children: .combine)
     }
 
     private func warningBadge(text: String, color: Color) -> some View {
-        HStack(spacing: 4) {
+        HStack(spacing: Theme.paddingMicro) {
             Image(systemName: "exclamationmark.triangle.fill")
-                .font(.system(size: 10))
+                .font(.system(size: Theme.fontSizeCaption))
             Text(text)
-                .font(.system(size: 10, weight: .medium))
+                .font(.system(size: Theme.fontSizeCaption, weight: .medium))
         }
         .foregroundColor(color)
-        .padding(.horizontal, 8)
-        .padding(.vertical, 4)
+        .padding(.horizontal, Theme.paddingSmall)
+        .padding(.vertical, Theme.paddingMicro)
         .background(color.opacity(0.15))
         .cornerRadius(Theme.cornerRadiusSmall)
-    }
-
-    private func formatBytes(_ bytes: UInt64) -> String {
-        let b = Double(bytes)
-        if b >= 1_000_000_000_000 {
-            return String(format: "%.1f TB", b / 1_000_000_000_000)
-        } else if b >= 1_000_000_000 {
-            return String(format: "%.0f GB", b / 1_000_000_000)
-        } else if b >= 1_000_000 {
-            return String(format: "%.0f MB", b / 1_000_000)
-        } else {
-            return String(format: "%.0f KB", b / 1_000)
-        }
+        .accessibilityLabel("Warning: \(text)")
     }
 }
 
@@ -441,55 +408,58 @@ struct SettingsView: View {
 
     var body: some View {
         ScrollView {
-            VStack(spacing: 16) {
-                // Data section
-                VStack(alignment: .leading, spacing: 8) {
-                    Text("DATA")
-                        .font(.system(size: 11, weight: .semibold))
-                        .foregroundColor(Theme.textSecondary)
-                        .tracking(0.05)
-
-                    VStack(alignment: .leading, spacing: 8) {
-                        Button(action: exportData) {
-                            HStack {
-                                Image(systemName: "square.and.arrow.up")
-                                Text("Export Data as CSV")
-                            }
-                            .font(.system(size: 12, weight: .medium))
-                            .foregroundColor(Theme.networkDown)
-                        }
-                        .buttonStyle(.plain)
-
-                        Text("Export all recorded samples for external analysis")
-                            .font(.system(size: 11))
-                            .foregroundColor(Theme.textSecondary)
-                    }
-                    .padding(12)
-                    .background(Theme.surface)
-                    .cornerRadius(8)
-                }
-
-                // About section
-                VStack(alignment: .leading, spacing: 8) {
-                    Text("ABOUT")
-                        .font(.system(size: 11, weight: .semibold))
-                        .foregroundColor(Theme.textSecondary)
-                        .tracking(0.05)
-
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text("Pulse")
-                            .font(.system(size: 13, weight: .medium))
-                            .foregroundColor(Theme.textPrimary)
-                        Text("System monitor for macOS")
-                            .font(.system(size: 11))
-                            .foregroundColor(Theme.textSecondary)
-                    }
-                    .padding(12)
-                    .background(Theme.surface)
-                    .cornerRadius(8)
-                }
+            VStack(spacing: Theme.paddingMedium) {
+                dataSection
+                aboutSection
             }
             .padding(Theme.paddingMedium)
+        }
+    }
+
+    private var dataSection: some View {
+        VStack(alignment: .leading, spacing: Theme.paddingSmall) {
+            Text("DATA")
+                .font(.system(size: Theme.fontSizeLabel, weight: .semibold))
+                .foregroundColor(Theme.textSecondary)
+                .tracking(0.5)
+
+            VStack(alignment: .leading, spacing: Theme.paddingSmall) {
+                Button(action: exportData) {
+                    HStack {
+                        Image(systemName: "square.and.arrow.up")
+                        Text("Export Data as CSV")
+                    }
+                    .font(.system(size: Theme.fontSizeBody, weight: .medium))
+                    .foregroundColor(Theme.networkDown)
+                }
+                .buttonStyle(.plain)
+
+                Text("Export all recorded samples for external analysis")
+                    .font(.system(size: Theme.fontSizeLabel))
+                    .foregroundColor(Theme.textSecondary)
+            }
+            .padding(Theme.paddingSmall)
+            .glassCard(cornerRadius: Theme.cornerRadiusSmall)
+        }
+    }
+
+    private var aboutSection: some View {
+        VStack(alignment: .leading, spacing: Theme.paddingSmall) {
+            Text("ABOUT")
+                .font(.system(size: Theme.fontSizeLabel, weight: .semibold))
+                .foregroundColor(Theme.textSecondary)
+                .tracking(0.5)
+
+            VStack(alignment: .leading, spacing: Theme.paddingMicro) {
+                Text("Pulse")
+                    .font(.system(size: Theme.fontSizeSubheadline, weight: .medium))
+                    .foregroundColor(Theme.textPrimary)
+                Text("System monitor for macOS")
+                    .font(.system(size: Theme.fontSizeLabel))
+                    .foregroundColor(Theme.textSecondary)
+            }
+            .padding(Theme.paddingSmall)
+            .glassCard(cornerRadius: Theme.cornerRadiusSmall)
         }
     }
 
